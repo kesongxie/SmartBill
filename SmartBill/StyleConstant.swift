@@ -9,7 +9,9 @@
 import UIKit
 
 struct StyleConstant{
-    static let navigationBarBackgroundColor = UIColor(red: 43 / 255.0, green: 32 / 255.0, blue: 42 / 255.0, alpha: 1.0)
-    static let navigationBarTitleTextAttribute = [NSForegroundColorAttributeName: UIColor.white]
-
+    static let systemFontName = "Avenir-Heavy"
+    struct NavigationBar{
+        static let backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+        static let titleTextAttribute = [NSForegroundColorAttributeName: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0), NSFontAttributeName: UIFont(name: systemFontName, size: 17.0)! ]
+    }
 }

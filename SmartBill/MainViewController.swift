@@ -10,6 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var billTextField: UITextField!
     
     @IBOutlet weak var currencySymbol: UILabel!
@@ -20,35 +22,39 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var tipView: UIView!
     
-    let builtInTipFactor = 0.15
+    @IBOutlet weak var dragIconImageView: UIImageView!
     
-    let maxCharCount = 9
+    var tipFactor: Double?{
+        didSet{
+            percentageLabel?.text = String(tipFactor! * 100)
+        }
+    }
     
-//    var billString: String!
+    //max character input for bill text field
+    let maxCharCount = 8
     
+    // numerical value for tip
     var billAmount: Double = 0
     
-    var tipAmount: String?{
+    var tipAmount: String!{
         didSet{
             self.tipAmountLabel.text = tipAmount
         }
     }
     
-    var autoAppendDecimalPoint = true
-    
-    var numFormatter = NumberFormatter()
+    enum titleStatus{
+        case refreshing
+        case initial
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Update UI
+        setScrollView()
         setNavigationBarUI()
-        setBillTextFieldUI()
+        setBillTextField()
+        setTipFactor()
         setTipView()
-        self.billTextField.delegate = self
-        self.billTextField.becomeFirstResponder()
-        self.billTextField.addTarget(self, action: #selector(self.billTextFieldTextDidChange), for: UIControlEvents.editingChanged)
-        self.numFormatter.numberStyle = .currency
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,29 +64,49 @@ class MainViewController: UIViewController {
     
     
     /*
-     MARK: - UI Set Up
+     * MARK: - UI Set Up
+     *       - scrollView set up
+     *       - set Bill Text Field
+     *       - Update navigation bar UI
+     *       - update TipView UI
      */
     
-    func setBillTextFieldUI(){
+    func setScrollView(){
+        self.scrollView.alwaysBounceVertical = true
+        self.scrollView.delegate = self
+    }
+    
+    func setBillTextField(){
+        self.billTextField.delegate = self
+        self.billTextField.becomeFirstResponder()
+        self.billTextField.addTarget(self, action: #selector(self.billTextFieldTextDidChange), for: UIControlEvents.editingChanged)
         if let placeHolder = self.billTextField.placeholder{
             self.billTextField.attributedPlaceholder = NSAttributedString(string: placeHolder, attributes: [NSForegroundColorAttributeName: UIColor(red: 255 / 255.0, green: 255 / 255.0, blue: 255 / 255.0, alpha: 0.6)])
         }
     }
     
     func setNavigationBarUI(){
-        self.navigationController?.navigationBar.barTintColor = StyleConstant.navigationBarBackgroundColor
-        self.navigationController?.navigationBar.titleTextAttributes = StyleConstant.navigationBarTitleTextAttribute
+        self.navigationController?.navigationBar.barTintColor = StyleConstant.NavigationBar.backgroundColor
+        self.navigationController?.navigationBar.titleTextAttributes = StyleConstant.NavigationBar.titleTextAttribute
         self.navigationController?.navigationBar.isTranslucent = false
-
     }
     
     func setTipView(){
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
         let amount = billAmount
-        let tipNum = (amount * builtInTipFactor) as NSNumber
-        self.tipAmount = numFormatter.string(from: tipNum)
+        let tipNum = (amount * tipFactor!) as NSNumber
+        self.tipAmount = currencyFormatter.string(from: tipNum)
     }
     
+    func setTipFactor(){
+        self.tipFactor = 0.15
+    }
     
+    /*
+     * MARK: - Bill text field control event
+     */
+ 
     func billTextFieldTextDidChange(){
         if let billString = self.billTextField.text{
             let noneCurrencyFormatter = NumberFormatter()
@@ -92,8 +118,24 @@ class MainViewController: UIViewController {
             setTipView()
         }
     }
-   
+    
+    
+    func updateTitle(status: titleStatus){
+        switch status{
+        case .initial:
+            self.title = AppName
+        case .refreshing:
+            self.title = "CALCULATING..."
+        }
+    }
+    
+    func toggleDragIconRotation(){
+        self.dragIconImageView.transform = CGAffineTransform(rotationAngle: (180.0 * CGFloat(M_PI)) / 180.0)
 
+    }
+    
+   
+    
     /*
     // MARK: - Navigation
 
@@ -107,22 +149,59 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if string == ""{
-            //delete button is pressed
-            
-        }else if textField.text!.characters.count >= self.maxCharCount{
-            return false
-        }else if string == "."{
-            //make sure there is no decimal point present already
-            if textField.text!.contains("."){
+        if let billString = textField.text{
+            if string == ""{
+                //delete button pressed
+                return true
+            }else if billString.characters.count == 1 && billString.characters.first == "0" && string != "."{
+                //replace the leading 0
+                textField.text = ""
+            }else if billString.characters.count >= self.maxCharCount{
                 return false
+            }else if string == "."{
+                //make sure the input is valid
+                if textField.text!.contains("."){
+                    return false
+                }
             }
         }
         return true
     }
     
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        //self.toggleDragIconRotation()
+        return true
+    }
     
-    
-        
 }
+
+extension MainViewController: UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y < -40{
+            UIView.animate(withDuration: 0.3, animations: {
+                self.billTextField.resignFirstResponder()
+                self.updateTitle(status: .refreshing)
+                UIView.animate(withDuration: 1.0,
+                    animations: {
+                        self.toggleDragIconRotation()
+                    },
+                    completion: {
+                        completed in
+                        if completed{
+                          //  self.dragIconImageView.isHidden = true
+                        }
+                    })
+            })
+        }
+    }
+    
+    
+}
+
+
+
+
+
+
+
 

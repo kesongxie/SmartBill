@@ -14,6 +14,7 @@
 		984174AA1DEAA52500BA64E3 /* StyleConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984174A71DEAA52500BA64E3 /* StyleConstant.swift */; };
 		984174AB1DEAA52500BA64E3 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984174A81DEAA52500BA64E3 /* MainNavigationViewController.swift */; };
 		984174AD1DEAA53F00BA64E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 984174AC1DEAA53F00BA64E3 /* Main.storyboard */; };
+		984174B01DEACFA300BA64E3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984174AF1DEACFA300BA64E3 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		984174A71DEAA52500BA64E3 /* StyleConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleConstant.swift; sourceTree = "<group>"; };
 		984174A81DEAA52500BA64E3 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		984174AC1DEAA53F00BA64E3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		984174AF1DEACFA300BA64E3 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				984174A71DEAA52500BA64E3 /* StyleConstant.swift */,
+				984174AF1DEACFA300BA64E3 /* Config.swift */,
 			);
 			name = Macro;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			files = (
 				984174A91DEAA52500BA64E3 /* MainViewController.swift in Sources */,
 				984174AB1DEAA52500BA64E3 /* MainNavigationViewController.swift in Sources */,
+				984174B01DEACFA300BA64E3 /* Config.swift in Sources */,
 				984174AA1DEAA52500BA64E3 /* StyleConstant.swift in Sources */,
 				984174951DEAA51300BA64E3 /* AppDelegate.swift in Sources */,
 			);
