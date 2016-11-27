@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="raz-By-Feo">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--SmartBill-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" userLabel="SmartBill" customClass="MainViewController" customModule="SmartBill" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgk-0B-YCs">
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill without tax: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjC-dj-Qmi">
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHW-vf-6D4">
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q7j-OB-dcq" userLabel="TipView">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IvZ-v2-PjD">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klr-MW-itf">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjX-M4-DFd">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPe-Cs-JGE">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% Tip)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKX-v4-hDY">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="mjX-M4-DFd" firstAttribute="baseline" secondItem="klr-MW-itf" secondAttribute="baseline" id="BOF-bB-VEk"/>
+                                    <constraint firstAttribute="height" constant="40" id="J97-Ze-Zk4"/>
+                                    <constraint firstItem="TPe-Cs-JGE" firstAttribute="baseline" secondItem="mjX-M4-DFd" secondAttribute="baseline" id="Mj0-rz-AU7"/>
+                                    <constraint firstItem="TPe-Cs-JGE" firstAttribute="leading" secondItem="mjX-M4-DFd" secondAttribute="trailing" id="QE2-99-Oxk"/>
+                                    <constraint firstItem="NKX-v4-hDY" firstAttribute="baseline" secondItem="TPe-Cs-JGE" secondAttribute="baseline" id="S0i-Lg-WJF"/>
+                                    <constraint firstItem="NKX-v4-hDY" firstAttribute="leading" secondItem="TPe-Cs-JGE" secondAttribute="trailing" id="SE2-o5-5gx"/>
+                                    <constraint firstItem="mjX-M4-DFd" firstAttribute="leading" secondItem="klr-MW-itf" secondAttribute="trailing" constant="8" symbolic="YES" id="cms-bK-fui"/>
+                                    <constraint firstItem="klr-MW-itf" firstAttribute="leading" secondItem="IvZ-v2-PjD" secondAttribute="trailing" constant="8" symbolic="YES" id="dJi-g1-QmC"/>
+                                    <constraint firstItem="klr-MW-itf" firstAttribute="baseline" secondItem="IvZ-v2-PjD" secondAttribute="baseline" id="hfw-Ei-YYY"/>
+                                    <constraint firstItem="IvZ-v2-PjD" firstAttribute="leading" secondItem="q7j-OB-dcq" secondAttribute="leading" constant="8" id="luI-tP-fRc"/>
+                                    <constraint firstItem="IvZ-v2-PjD" firstAttribute="centerY" secondItem="q7j-OB-dcq" secondAttribute="centerY" id="m1j-kT-erS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.16862745098039217" green="0.12549019607843137" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="pHW-vf-6D4" firstAttribute="top" secondItem="FjC-dj-Qmi" secondAttribute="bottom" constant="8" symbolic="YES" id="BJw-eF-hO6"/>
+                            <constraint firstItem="pHW-vf-6D4" firstAttribute="leading" secondItem="FjC-dj-Qmi" secondAttribute="leading" id="JlR-2e-d6w"/>
+                            <constraint firstItem="q7j-OB-dcq" firstAttribute="trailing" secondItem="jgk-0B-YCs" secondAttribute="trailing" id="Mvs-SS-jYm"/>
+                            <constraint firstAttribute="trailing" secondItem="jgk-0B-YCs" secondAttribute="trailing" constant="20" symbolic="YES" id="Z8m-ON-RJR"/>
+                            <constraint firstItem="q7j-OB-dcq" firstAttribute="top" secondItem="pHW-vf-6D4" secondAttribute="bottom" constant="29" id="bbH-ZX-19W"/>
+                            <constraint firstItem="pHW-vf-6D4" firstAttribute="centerY" secondItem="jgk-0B-YCs" secondAttribute="centerY" id="cB9-y0-Xqy"/>
+                            <constraint firstItem="FjC-dj-Qmi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="33" id="ehz-we-M7y"/>
+                            <constraint firstItem="jgk-0B-YCs" firstAttribute="leading" secondItem="pHW-vf-6D4" secondAttribute="trailing" constant="12" id="gSd-9w-r0P"/>
+                            <constraint firstItem="q7j-OB-dcq" firstAttribute="leading" secondItem="pHW-vf-6D4" secondAttribute="leading" id="pE6-rJ-Tgg"/>
+                            <constraint firstItem="FjC-dj-Qmi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="pxA-ZI-619"/>
+                            <constraint firstAttribute="trailing" secondItem="FjC-dj-Qmi" secondAttribute="trailing" constant="20" id="sGT-H4-qhp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="SMART BILL" id="hCe-bU-kCs"/>
+                    <connections>
+                        <outlet property="billTextField" destination="jgk-0B-YCs" id="G6r-jA-kGg"/>
+                        <outlet property="currencySymbol" destination="pHW-vf-6D4" id="diF-HT-oOC"/>
+                        <outlet property="percentageLabel" destination="TPe-Cs-JGE" id="8eQ-xO-M1p"/>
+                        <outlet property="tipAmountLabel" destination="klr-MW-itf" id="YYm-Gd-Ner"/>
+                        <outlet property="tipView" destination="q7j-OB-dcq" id="87w-cB-EBd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="792.79999999999995" y="130.88455772113943"/>
+        </scene>
+        <!--Main Navigation View Controller-->
+        <scene sceneID="pI5-Pe-di1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="raz-By-Feo" customClass="MainNavigationViewController" customModule="SmartBill" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dje-Aw-Lvt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="mO9-Sp-8AF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9vL-Z4-Y4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="130.88455772113943"/>
+        </scene>
+    </scenes>
+</document>
