@@ -64,7 +64,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    
     var subtotalBefore: Double = 0{
         didSet{
             self.subtotalBeforeLabel?.text = getCurrenceStringFromAmount(self.subtotalBefore)
@@ -100,8 +99,6 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var tipPercentPickerView: UIPickerView!
     
-    
-
     @IBOutlet weak var weekDayLabel: UILabel!{
         didSet{
             self.weekDayLabel.text = Date().weekDayString.uppercased()
@@ -120,14 +117,12 @@ class MainViewController: UIViewController {
         }
     }
     
-    
     enum LeftPanelStatus{
         case open
         case close
     }
     
     var leftPanelStatus = LeftPanelStatus.close
-    
     
     var tipPercentPickerSource = [NSLocalizedString("Select Tip Percentage", comment:""), NSLocalizedString("None", comment:"tips selection none"), "5%", "10%","15%", "20%", "25%", "30%"]
     
@@ -144,6 +139,13 @@ class MainViewController: UIViewController {
         setTipView()
         setSubtotalBefore()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.billTextField.becomeFirstResponder()
+    }
+    
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -222,6 +224,7 @@ class MainViewController: UIViewController {
      */
     func setTipView(){
         self.tipAmount = getCurrenceStringFromAmount(billAmount * tipFactor)
+        self.percentageLabel.text = "\(tipFactor * 100)"
     }
     
     func setTipFactor(){
@@ -229,7 +232,6 @@ class MainViewController: UIViewController {
     }
    
     func setSubtotalBefore(){
-        print("now tip factor is \(tipFactor)")
         self.subtotalBefore = billAmount * (1 + tipFactor)
     }
 
