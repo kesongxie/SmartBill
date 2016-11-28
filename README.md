@@ -5,7 +5,7 @@ Gif walk through
 <h1>
 
 <div>
-<p align="left">
+<p style="display: inline-block" align="left">
   <img src="https://github.com/kesongxie/SmartBill/blob/master/SmartBill/Gif/Part-one.gif" width="250"/>
 </p>
 
