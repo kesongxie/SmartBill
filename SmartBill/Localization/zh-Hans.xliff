@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="SmartBill/Base.lproj/LaunchScreen.storyboard" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.0" build-num="8A218a"/>
+    </header>
+    <body/>
+  </file>
+  <file original="SmartBill/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.0" build-num="8A218a"/>
+    </header>
+    <body>
+      <trans-unit id="2oe-OY-Sy1.title">
+        <source>Settings</source>
+        <target>设置</target>
+        <note>Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "2oe-OY-Sy1";</note>
+      </trans-unit>
+      <trans-unit id="9xy-Hy-v8R.title">
+        <source>Back</source>
+        <target>返回</target>
+        <note>Class = "UIBarButtonItem"; title = "Back"; ObjectID = "9xy-Hy-v8R";</note>
+      </trans-unit>
+      <trans-unit id="BVc-tm-pID.text">
+        <source>NOV</source>
+        <target>NOV</target>
+        <note>Class = "UILabel"; text = "NOV"; ObjectID = "BVc-tm-pID";</note>
+      </trans-unit>
+      <trans-unit id="FjC-dj-Qmi.text">
+        <source>Bill without tax: </source>
+        <target>账单不加小费: </target>
+        <note>Class = "UILabel"; text = "Bill without tax: "; ObjectID = "FjC-dj-Qmi";</note>
+      </trans-unit>
+      <trans-unit id="HoH-vC-LHK.text">
+        <source>Subtotal = </source>
+        <target>总计 = </target>
+        <note>Class = "UILabel"; text = "Subtotal = "; ObjectID = "HoH-vC-LHK";</note>
+      </trans-unit>
+      <trans-unit id="IvZ-v2-PjD.text">
+        <source>+</source>
+        <target>+</target>
+        <note>Class = "UILabel"; text = "+"; ObjectID = "IvZ-v2-PjD";</note>
+      </trans-unit>
+      <trans-unit id="Lvi-vE-rQX.title">
+        <source>Back</source>
+        <target>返回</target>
+        <note>Class = "UIBarButtonItem"; title = "Back"; ObjectID = "Lvi-vE-rQX";</note>
+      </trans-unit>
+      <trans-unit id="Mtk-na-B5P.text">
+        <source>$0.00</source>
+        <target>$0.00</target>
+        <note>Class = "UILabel"; text = "$0.00"; ObjectID = "Mtk-na-B5P";</note>
+      </trans-unit>
+      <trans-unit id="N2A-89-64M.title">
+        <source>SETTINGS</source>
+        <target>设置</target>
+        <note>Class = "UINavigationItem"; title = "SETTINGS"; ObjectID = "N2A-89-64M";</note>
+      </trans-unit>
+      <trans-unit id="NKX-v4-hDY.text">
+        <source>% Tips)</source>
+        <target>% 小费)</target>
+        <note>Class = "UILabel"; text = "% Tips)"; ObjectID = "NKX-v4-hDY";</note>
+      </trans-unit>
+      <trans-unit id="OVA-fq-R6j.headerTitle">
+        <source>Tips Percentage</source>
+        <target>小费</target>
+        <note>Class = "UITableViewSection"; headerTitle = "Tips Percentage"; ObjectID = "OVA-fq-R6j";</note>
+      </trans-unit>
+      <trans-unit id="TPe-Cs-JGE.text">
+        <source>Percentage</source>
+        <target>百分比</target>
+        <note>Class = "UILabel"; text = "Percentage"; ObjectID = "TPe-Cs-JGE";</note>
+      </trans-unit>
+      <trans-unit id="Wt2-OZ-Pgx.text">
+        <source>$0.00</source>
+        <target>$0.00</target>
+        <note>Class = "UITextField"; text = "$0.00"; ObjectID = "Wt2-OZ-Pgx";</note>
+      </trans-unit>
+      <trans-unit id="XTS-4v-KXT.text">
+        <source>17</source>
+        <target>17</target>
+        <note>Class = "UILabel"; text = "17"; ObjectID = "XTS-4v-KXT";</note>
+      </trans-unit>
+      <trans-unit id="hCe-bU-kCs.title">
+        <source>SMART BILL</source>
+        <target>SMART BILL</target>
+        <note>Class = "UINavigationItem"; title = "SMART BILL"; ObjectID = "hCe-bU-kCs";</note>
+      </trans-unit>
+      <trans-unit id="jgk-0B-YCs.placeholder">
+        <source>0.00</source>
+        <target>0.00</target>
+        <note>Class = "UITextField"; placeholder = "0.00"; ObjectID = "jgk-0B-YCs";</note>
+      </trans-unit>
+      <trans-unit id="klr-MW-itf.text">
+        <source>Tip Amount</source>
+        <target>小费金额</target>
+        <note>Class = "UILabel"; text = "Tip Amount"; ObjectID = "klr-MW-itf";</note>
+      </trans-unit>
+      <trans-unit id="mjX-M4-DFd.text">
+        <source>(</source>
+        <target>(</target>
+        <note>Class = "UILabel"; text = "("; ObjectID = "mjX-M4-DFd";</note>
+      </trans-unit>
+      <trans-unit id="oyK-I0-TJz.title">
+        <source>SETTINGS</source>
+        <target>设置</target>
+        <note>Class = "UINavigationItem"; title = "SETTINGS"; ObjectID = "oyK-I0-TJz";</note>
+      </trans-unit>
+      <trans-unit id="pHW-vf-6D4.text">
+        <source>$</source>
+        <target>$</target>
+        <note>Class = "UILabel"; text = "$"; ObjectID = "pHW-vf-6D4";</note>
+      </trans-unit>
+      <trans-unit id="tbM-cW-jvE.text">
+        <source>Sunday</source>
+        <target>Sunday</target>
+        <note>Class = "UILabel"; text = "Sunday"; ObjectID = "tbM-cW-jvE";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="SmartBill/Info.plist" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.0" build-num="8A218a"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="SmartBill/Localizable.strings" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.0" build-num="8A218a"/>
+    </header>
+    <body>
+      <trans-unit id="CALCULATING...">
+        <source>CALCULATING...</source>
+        <target>正在计算</target>
+        <note>The title for the view controller</note>
+      </trans-unit>
+      <trans-unit id="None">
+        <source>None</source>
+        <target>不计</target>
+        <note>tips selection none</note>
+      </trans-unit>
+      <trans-unit id="Select Tip Percentage">
+        <source>Select Tip Percentage</source>
+        <target>选择小费百分比</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

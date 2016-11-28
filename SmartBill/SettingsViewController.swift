@@ -43,3 +43,30 @@ class SettingsViewController: UIViewController {
     */
 
 }
+
+//extension SettingsTableViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return pickerSource.count
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+//        let attrTitle = NSAttributedString(string: pickerSource[row], attributes: [NSFontAttributeName: UIFont(name: StyleConstant.systemFontNameBold, size: 14.0), NSForegroundColorAttributeName: UIColor.black])
+//        return attrTitle
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+//        return 40.0
+//    }
+//
+//
+//}
+//
+//
+//
+
+
+

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -140,19 +141,69 @@
                                     <constraint firstItem="y93-jQ-FgT" firstAttribute="leading" secondItem="jD8-Wx-V92" secondAttribute="leading" id="sPu-zr-Kz7"/>
                                 </constraints>
                             </scrollView>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQc-Sk-Ze1" userLabel="Overlay View">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HjF-bF-BD0">
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xuC-LQ-wmo">
+                                        <frame key="frameInset" minY="466" height="201"/>
+                                        <color key="backgroundColor" red="0.52941176469999995" green="0.0" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbM-cW-jvE">
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="60"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVc-tm-pID">
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="26"/>
+                                        <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTS-4v-KXT">
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="26"/>
+                                        <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="tbM-cW-jvE" secondAttribute="trailing" constant="20" symbolic="YES" id="1Ob-7Y-dxw"/>
+                                    <constraint firstItem="BVc-tm-pID" firstAttribute="leading" secondItem="tbM-cW-jvE" secondAttribute="leading" id="4Qo-sN-wua"/>
+                                    <constraint firstItem="xuC-LQ-wmo" firstAttribute="leading" secondItem="HjF-bF-BD0" secondAttribute="leading" id="5am-ot-ioZ"/>
+                                    <constraint firstItem="BVc-tm-pID" firstAttribute="top" secondItem="tbM-cW-jvE" secondAttribute="bottom" id="K7o-hP-VDf"/>
+                                    <constraint firstItem="tbM-cW-jvE" firstAttribute="leading" secondItem="HjF-bF-BD0" secondAttribute="leading" constant="20" symbolic="YES" id="Llf-Ud-TQY"/>
+                                    <constraint firstItem="XTS-4v-KXT" firstAttribute="baseline" secondItem="BVc-tm-pID" secondAttribute="baseline" id="RQD-Sw-HKw"/>
+                                    <constraint firstItem="XTS-4v-KXT" firstAttribute="leading" secondItem="BVc-tm-pID" secondAttribute="trailing" constant="8" symbolic="YES" id="mho-IR-BZo"/>
+                                    <constraint firstItem="tbM-cW-jvE" firstAttribute="top" secondItem="HjF-bF-BD0" secondAttribute="top" constant="20" symbolic="YES" id="nlA-gx-WtN"/>
+                                    <constraint firstAttribute="trailing" secondItem="xuC-LQ-wmo" secondAttribute="trailing" id="sMH-bV-mTP"/>
+                                    <constraint firstAttribute="bottom" secondItem="xuC-LQ-wmo" secondAttribute="bottom" id="zOh-1e-noD"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.45882352941176469" green="0.0" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="y93-jQ-FgT" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="2Nw-ct-9sP"/>
+                            <constraint firstItem="bQc-Sk-Ze1" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="3Mf-ke-fcO"/>
                             <constraint firstItem="jD8-Wx-V92" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9W1-rN-7A9"/>
                             <constraint firstItem="y93-jQ-FgT" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" priority="250" id="HgD-2W-Tpi"/>
+                            <constraint firstItem="bQc-Sk-Ze1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KYg-lx-6Iy"/>
                             <constraint firstItem="jD8-Wx-V92" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Okq-7X-lqs"/>
+                            <constraint firstItem="bQc-Sk-Ze1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Oli-ww-a63"/>
+                            <constraint firstItem="bQc-Sk-Ze1" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="RZh-Lw-6cQ"/>
                             <constraint firstAttribute="trailing" secondItem="jD8-Wx-V92" secondAttribute="trailing" id="bAw-zs-W1x"/>
+                            <constraint firstItem="HjF-bF-BD0" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="bz7-Aa-leu"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jD8-Wx-V92" secondAttribute="bottom" id="cQb-KN-A4g"/>
+                            <constraint firstItem="HjF-bF-BD0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="d3s-Nf-NcV"/>
+                            <constraint firstItem="HjF-bF-BD0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="hd2-WA-dgA"/>
+                            <constraint firstItem="HjF-bF-BD0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mek-N8-p69"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="utj-3d-ziL" secondAttribute="bottom" id="riT-pV-36Z"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SMART BILL" id="hCe-bU-kCs">
+                        <barButtonItem key="leftBarButtonItem" image="Ham" id="m8t-sm-wQu">
+                            <color key="tintColor" red="0.52941176469999995" green="0.0" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="2oe-OY-Sy1">
                             <color key="tintColor" red="0.62745098040000002" green="0.0" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -163,6 +214,8 @@
                     <connections>
                         <outlet property="billTextField" destination="jgk-0B-YCs" id="G6r-jA-kGg"/>
                         <outlet property="currencySymbol" destination="pHW-vf-6D4" id="diF-HT-oOC"/>
+                        <outlet property="dayLabel" destination="XTS-4v-KXT" id="Nii-01-klB"/>
+                        <outlet property="monthLabel" destination="BVc-tm-pID" id="SsW-nY-Q2K"/>
                         <outlet property="percentageLabel" destination="TPe-Cs-JGE" id="8eQ-xO-M1p"/>
                         <outlet property="pickerView" destination="CqW-mK-BLs" id="PHg-wY-fCC"/>
                         <outlet property="scrollView" destination="jD8-Wx-V92" id="cMZ-qZ-gAd"/>
@@ -170,7 +223,9 @@
                         <outlet property="subTotalAfterStaticTextField" destination="Wt2-OZ-Pgx" id="d4a-A7-4mz"/>
                         <outlet property="subtotalBeforeLabel" destination="Mtk-na-B5P" id="ff7-ch-XUQ"/>
                         <outlet property="tipAmountLabel" destination="klr-MW-itf" id="YYm-Gd-Ner"/>
+                        <outlet property="tipPercentPickerView" destination="xuC-LQ-wmo" id="0X3-SV-75m"/>
                         <outlet property="tipView" destination="q7j-OB-dcq" id="87w-cB-EBd"/>
+                        <outlet property="weekDayLabel" destination="tbM-cW-jvE" id="Bxo-As-E6O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -278,4 +333,7 @@
             <point key="canvasLocation" x="141.59999999999999" y="87.706146926536732"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Ham" width="22" height="17"/>
+    </resources>
 </document>

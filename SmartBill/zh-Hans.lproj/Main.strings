@@ -1,0 +1,63 @@
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "2oe-OY-Sy1"; */
+"2oe-OY-Sy1.title" = "设置";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "9xy-Hy-v8R"; */
+"9xy-Hy-v8R.title" = "返回";
+
+/* Class = "UILabel"; text = "NOV"; ObjectID = "BVc-tm-pID"; */
+"BVc-tm-pID.text" = "NOV";
+
+/* Class = "UILabel"; text = "Bill without tax: "; ObjectID = "FjC-dj-Qmi"; */
+"FjC-dj-Qmi.text" = "账单不加小费: ";
+
+/* Class = "UILabel"; text = "Subtotal = "; ObjectID = "HoH-vC-LHK"; */
+"HoH-vC-LHK.text" = "总计 = ";
+
+/* Class = "UILabel"; text = "+"; ObjectID = "IvZ-v2-PjD"; */
+"IvZ-v2-PjD.text" = "+";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "Lvi-vE-rQX"; */
+"Lvi-vE-rQX.title" = "返回";
+
+/* Class = "UILabel"; text = "$0.00"; ObjectID = "Mtk-na-B5P"; */
+"Mtk-na-B5P.text" = "$0.00";
+
+/* Class = "UINavigationItem"; title = "SETTINGS"; ObjectID = "N2A-89-64M"; */
+"N2A-89-64M.title" = "设置";
+
+/* Class = "UILabel"; text = "% Tips)"; ObjectID = "NKX-v4-hDY"; */
+"NKX-v4-hDY.text" = "% 小费)";
+
+/* Class = "UITableViewSection"; headerTitle = "Tips Percentage"; ObjectID = "OVA-fq-R6j"; */
+"OVA-fq-R6j.headerTitle" = "小费";
+
+/* Class = "UILabel"; text = "Percentage"; ObjectID = "TPe-Cs-JGE"; */
+"TPe-Cs-JGE.text" = "百分比";
+
+/* Class = "UITextField"; text = "$0.00"; ObjectID = "Wt2-OZ-Pgx"; */
+"Wt2-OZ-Pgx.text" = "$0.00";
+
+/* Class = "UILabel"; text = "17"; ObjectID = "XTS-4v-KXT"; */
+"XTS-4v-KXT.text" = "17";
+
+/* Class = "UINavigationItem"; title = "SMART BILL"; ObjectID = "hCe-bU-kCs"; */
+"hCe-bU-kCs.title" = "SMART BILL";
+
+/* Class = "UITextField"; placeholder = "0.00"; ObjectID = "jgk-0B-YCs"; */
+"jgk-0B-YCs.placeholder" = "0.00";
+
+/* Class = "UILabel"; text = "Tip Amount"; ObjectID = "klr-MW-itf"; */
+"klr-MW-itf.text" = "小费金额";
+
+/* Class = "UILabel"; text = "("; ObjectID = "mjX-M4-DFd"; */
+"mjX-M4-DFd.text" = "(";
+
+/* Class = "UINavigationItem"; title = "SETTINGS"; ObjectID = "oyK-I0-TJz"; */
+"oyK-I0-TJz.title" = "设置";
+
+/* Class = "UILabel"; text = "$"; ObjectID = "pHW-vf-6D4"; */
+"pHW-vf-6D4.text" = "$";
+
+/* Class = "UILabel"; text = "Sunday"; ObjectID = "tbM-cW-jvE"; */
+"tbM-cW-jvE.text" = "Sunday";
+

@@ -1,0 +1,9 @@
+/* The title for the view controller */
+"CALCULATING..." = "正在计算";
+
+/* tips selection none */
+"None" = "不计";
+
+/* No comment provided by engineer. */
+"Select Tip Percentage" = "选择小费百分比";
+

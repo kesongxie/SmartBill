@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var subtotalBeforeLabel: UILabel!
 
     @IBOutlet weak var pickerView: UIPickerView!
-
+   
     @IBOutlet weak var settingBtn: UIBarButtonItem!{
         didSet{
            settingBtn.stylized()
@@ -87,7 +87,32 @@ class MainViewController: UIViewController {
         case initial
     }
     
-    var pickerSource = initFriendSplitDataSoucre()
+    var splitPickerSource = initFriendSplitDataSoucre()
+    
+    /*
+     * MARK: - slider properties
+     */
+    @IBOutlet weak var tipPercentPickerView: UIPickerView!
+
+    @IBOutlet weak var weekDayLabel: UILabel!{
+        didSet{
+            self.weekDayLabel.text = Date().weekDayString.uppercased()
+        }
+    }
+    
+    @IBOutlet weak var monthLabel: UILabel!{
+        didSet{
+            self.monthLabel.text = Date().monthString.uppercased()
+        }
+    }
+    
+    @IBOutlet weak var dayLabel: UILabel!{
+        didSet{
+            self.dayLabel.text = Date().dayString
+        }
+    }
+    
+    var tipPercentPickerSource = [NSLocalizedString("Select Tip Percentage", comment:""), NSLocalizedString("None", comment:"tips selection none"), "5%", "10%","15%", "20%", "25%", "30%"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,7 +143,6 @@ class MainViewController: UIViewController {
      *       - controller title update
      */
     
-    
     /*
         Add tap gesture to the view
      */
@@ -136,12 +160,16 @@ class MainViewController: UIViewController {
     func setPickerView(){
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
+        
+        self.tipPercentPickerView.delegate = self
+        self.tipPercentPickerView.dataSource = self
+        
     }
     
     
     func setBillTextField(){
         self.billTextField.delegate = self
-        self.billTextField.becomeFirstResponder()
+      //  self.billTextField.becomeFirstResponder()
         self.billTextField.addTarget(self, action: #selector(self.billTextFieldTextDidChange), for: UIControlEvents.editingChanged)
         if let placeHolder = self.billTextField.placeholder{
             self.billTextField.attributedPlaceholder = NSAttributedString(string: placeHolder, attributes: [NSForegroundColorAttributeName: UIColor(red: 255 / 255.0, green: 255 / 255.0, blue: 255 / 255.0, alpha: 0.6)])
@@ -159,7 +187,7 @@ class MainViewController: UIViewController {
         case .initial:
             self.title = AppName
         case .refreshing:
-            self.title = "CALCULATING..."
+            self.title = NSLocalizedString("CALCULATING...", comment: "The title for the view controller")
         }
     }
 
@@ -258,11 +286,16 @@ extension MainViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerSource.count
+        return pickerView == self.pickerView ? splitPickerSource.count : tipPercentPickerSource.count
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let attrTitle = NSAttributedString(string: pickerSource[row], attributes: [NSFontAttributeName: UIFont(name: StyleConstant.systemFontNameBold, size: 14.0), NSForegroundColorAttributeName: UIColor.black])
+        var attrTitle:NSAttributedString?
+        if pickerView == self.pickerView{
+            attrTitle = NSAttributedString(string: splitPickerSource[row], attributes: [NSFontAttributeName: UIFont(name: StyleConstant.systemFontNameBold, size: 14.0), NSForegroundColorAttributeName: UIColor.black])
+        }else{
+             attrTitle = NSAttributedString(string: tipPercentPickerSource[row], attributes: [NSFontAttributeName: UIFont(name: StyleConstant.systemFontNameBold, size: 14.0), NSForegroundColorAttributeName: UIColor.white])
+        }
         return attrTitle
     }
     

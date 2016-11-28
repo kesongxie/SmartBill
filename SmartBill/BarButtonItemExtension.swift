@@ -13,3 +13,4 @@ extension UIBarButtonItem{
          self.setTitleTextAttributes([NSFontAttributeName: UIFont(name: StyleConstant.systemFontNameMeidum, size: 17.0)!], for: .normal)
     }
 }
+
