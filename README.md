@@ -1,6 +1,8 @@
 # SmartBill
 
- --- Coming soon
+<h1>
+Gif walk through
+<h1>
 
 <div>
 <p align="center">
