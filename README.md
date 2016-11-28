@@ -8,13 +8,11 @@ Gif walk through
 <p align="left">
   <img src="https://github.com/kesongxie/SmartBill/blob/master/SmartBill/Gif/Part-one.gif" width="250"/>
 </p>
+</div>
 
-<p align="center">
+<div>
+<p align="left">
    <img src=" https://github.com/kesongxie/SmartBill/blob/master/SmartBill/Gif/Part-two.gif" width="250"/>
 </p>
-
- 
-
-
 </div>
 
