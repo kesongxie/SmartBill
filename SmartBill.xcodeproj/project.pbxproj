@@ -19,7 +19,6 @@
 		989A1DD61DEBA3C800484A33 /* BarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989A1DD51DEBA3C800484A33 /* BarButtonItemExtension.swift */; };
 		989A1DD81DEBAD1800484A33 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989A1DD71DEBAD1800484A33 /* SettingsTableViewController.swift */; };
 		989A1DDA1DEBD12600484A33 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989A1DD91DEBD12600484A33 /* DateExtension.swift */; };
-		989A1DDC1DEBD81A00484A33 /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989A1DDB1DEBD81A00484A33 /* LabelExtension.swift */; };
 		989A1DE01DEBE45F00484A33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 989A1DDE1DEBE45F00484A33 /* Main.storyboard */; };
 		989A1DE51DEBF0EE00484A33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 989A1DE71DEBF0EE00484A33 /* InfoPlist.strings */; };
 		989A1DEA1DEBF42B00484A33 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 989A1DEC1DEBF42B00484A33 /* Localizable.strings */; };
@@ -40,7 +39,6 @@
 		989A1DD51DEBA3C800484A33 /* BarButtonItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarButtonItemExtension.swift; sourceTree = "<group>"; };
 		989A1DD71DEBAD1800484A33 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		989A1DD91DEBD12600484A33 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		989A1DDB1DEBD81A00484A33 /* LabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
 		989A1DDF1DEBE45F00484A33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		989A1DE11DEBE47D00484A33 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		989A1DE21DEBE47D00484A33 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 			children = (
 				989A1DD51DEBA3C800484A33 /* BarButtonItemExtension.swift */,
 				989A1DD91DEBD12600484A33 /* DateExtension.swift */,
-				989A1DDB1DEBD81A00484A33 /* LabelExtension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -159,6 +156,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 984174881DEAA51300BA64E3;
 			productRefGroup = 984174921DEAA51300BA64E3 /* Products */;
@@ -197,7 +195,6 @@
 				984174B01DEACFA300BA64E3 /* Config.swift in Sources */,
 				989A1DD61DEBA3C800484A33 /* BarButtonItemExtension.swift in Sources */,
 				984174AA1DEAA52500BA64E3 /* StyleConstant.swift in Sources */,
-				989A1DDC1DEBD81A00484A33 /* LabelExtension.swift in Sources */,
 				984174951DEAA51300BA64E3 /* AppDelegate.swift in Sources */,
 				989A1DD11DEB7F3000484A33 /* Helper.swift in Sources */,
 				989A1DD81DEBAD1800484A33 /* SettingsTableViewController.swift in Sources */,

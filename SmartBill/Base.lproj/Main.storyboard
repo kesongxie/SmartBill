@@ -141,10 +141,10 @@
                                     <constraint firstItem="y93-jQ-FgT" firstAttribute="leading" secondItem="jD8-Wx-V92" secondAttribute="leading" id="sPu-zr-Kz7"/>
                                 </constraints>
                             </scrollView>
-                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQc-Sk-Ze1" userLabel="Overlay View">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQc-Sk-Ze1" userLabel="Overlay View">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HjF-bF-BD0">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HjF-bF-BD0" userLabel="Slider View">
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xuC-LQ-wmo">
                                         <frame key="frameInset" minY="466" height="201"/>
@@ -196,13 +196,16 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jD8-Wx-V92" secondAttribute="bottom" id="cQb-KN-A4g"/>
                             <constraint firstItem="HjF-bF-BD0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="d3s-Nf-NcV"/>
                             <constraint firstItem="HjF-bF-BD0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="hd2-WA-dgA"/>
-                            <constraint firstItem="HjF-bF-BD0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mek-N8-p69"/>
+                            <constraint firstItem="HjF-bF-BD0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-400" id="mek-N8-p69"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="utj-3d-ziL" secondAttribute="bottom" id="riT-pV-36Z"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SMART BILL" id="hCe-bU-kCs">
                         <barButtonItem key="leftBarButtonItem" image="Ham" id="m8t-sm-wQu">
                             <color key="tintColor" red="0.52941176469999995" green="0.0" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="hamIconTapped:" destination="BYZ-38-t0r" id="ruT-jN-1y1"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="2oe-OY-Sy1">
                             <color key="tintColor" red="0.62745098040000002" green="0.0" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -215,11 +218,13 @@
                         <outlet property="billTextField" destination="jgk-0B-YCs" id="G6r-jA-kGg"/>
                         <outlet property="currencySymbol" destination="pHW-vf-6D4" id="diF-HT-oOC"/>
                         <outlet property="dayLabel" destination="XTS-4v-KXT" id="Nii-01-klB"/>
+                        <outlet property="leftPanel" destination="HjF-bF-BD0" id="g0e-Rh-dCV"/>
                         <outlet property="monthLabel" destination="BVc-tm-pID" id="SsW-nY-Q2K"/>
+                        <outlet property="overlayView" destination="bQc-Sk-Ze1" id="qte-M5-cfZ"/>
                         <outlet property="percentageLabel" destination="TPe-Cs-JGE" id="8eQ-xO-M1p"/>
-                        <outlet property="pickerView" destination="CqW-mK-BLs" id="PHg-wY-fCC"/>
                         <outlet property="scrollView" destination="jD8-Wx-V92" id="cMZ-qZ-gAd"/>
                         <outlet property="settingBtn" destination="2oe-OY-Sy1" id="4vA-gY-GIb"/>
+                        <outlet property="splitPickerView" destination="CqW-mK-BLs" id="35S-n5-uUn"/>
                         <outlet property="subTotalAfterStaticTextField" destination="Wt2-OZ-Pgx" id="d4a-A7-4mz"/>
                         <outlet property="subtotalBeforeLabel" destination="Mtk-na-B5P" id="ff7-ch-XUQ"/>
                         <outlet property="tipAmountLabel" destination="klr-MW-itf" id="YYm-Gd-Ner"/>

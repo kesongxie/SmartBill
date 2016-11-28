@@ -28,19 +28,15 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var subtotalBeforeLabel: UILabel!
 
-    @IBOutlet weak var pickerView: UIPickerView!
-   
+    @IBOutlet weak var splitPickerView: UIPickerView!
+    
     @IBOutlet weak var settingBtn: UIBarButtonItem!{
         didSet{
            settingBtn.stylized()
         }
     }
     
-    var tipFactor: Double!{
-        didSet{
-            percentageLabel?.text = String(tipFactor * 100)
-        }
-    }
+    var tipFactor: Double! = 0
     
     //max character input for bill text field
     let maxCharCount = 12
@@ -92,7 +88,19 @@ class MainViewController: UIViewController {
     /*
      * MARK: - slider properties
      */
+    @IBOutlet weak var leftPanel: UIView!
+    
+    @IBOutlet weak var overlayView: UIView!
+    
+    
+    @IBAction func hamIconTapped(_ sender: UIBarButtonItem) {
+        self.view.endEditing(true)
+        self.toggleLeftPanel()
+    }
+    
     @IBOutlet weak var tipPercentPickerView: UIPickerView!
+    
+    
 
     @IBOutlet weak var weekDayLabel: UILabel!{
         didSet{
@@ -112,6 +120,15 @@ class MainViewController: UIViewController {
         }
     }
     
+    
+    enum LeftPanelStatus{
+        case open
+        case close
+    }
+    
+    var leftPanelStatus = LeftPanelStatus.close
+    
+    
     var tipPercentPickerSource = [NSLocalizedString("Select Tip Percentage", comment:""), NSLocalizedString("None", comment:"tips selection none"), "5%", "10%","15%", "20%", "25%", "30%"]
     
     override func viewDidLoad() {
@@ -120,10 +137,12 @@ class MainViewController: UIViewController {
         setView()
         setScrollView()
         setPickerView()
+        setCurrencySymbol()
         setNavigationBarUI()
         setBillTextField()
         setTipFactor()
         setTipView()
+        setSubtotalBefore()
     }
 
     override func didReceiveMemoryWarning() {
@@ -135,6 +154,7 @@ class MainViewController: UIViewController {
     /*
      * MARK: - UI Set Up
      *       - view set up
+     *       - set up Slider View
      *       - keyboard set up
      *       - scrollView set up
      *       - set up pickeer view
@@ -150,7 +170,6 @@ class MainViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped))
         self.view.addGestureRecognizer(tapGesture)
     }
-    
   
     func setScrollView(){
         self.scrollView.alwaysBounceVertical = true
@@ -158,12 +177,14 @@ class MainViewController: UIViewController {
     }
     
     func setPickerView(){
-        self.pickerView.delegate = self
-        self.pickerView.dataSource = self
-        
+        self.splitPickerView.delegate = self
+        self.splitPickerView.dataSource = self
         self.tipPercentPickerView.delegate = self
         self.tipPercentPickerView.dataSource = self
-        
+    }
+    
+    func setCurrencySymbol(){
+        self.currencySymbol.text = getCurrencySymbol()
     }
     
     
@@ -208,6 +229,7 @@ class MainViewController: UIViewController {
     }
    
     func setSubtotalBefore(){
+        print("now tip factor is \(tipFactor)")
         self.subtotalBefore = billAmount * (1 + tipFactor)
     }
 
@@ -219,6 +241,32 @@ class MainViewController: UIViewController {
     
     func viewTapped(){
         view.endEditing(true)
+    }
+    
+    func toggleLeftPanel(){
+        switch self.leftPanelStatus{
+        case .close:
+            //open
+            UIView.animate(withDuration: 0.3, animations: {
+                self.leftPanel.frame.origin.x = 0
+                self.overlayView.alpha = 0.6
+            })
+            self.leftPanelStatus = .open
+        case .open:
+            //close
+            UIView.animate(withDuration: 0.3, animations: {
+                self.leftPanel.frame.origin.x = -self.leftPanel.frame.size.width
+                self.overlayView.alpha = 0
+                }, completion:{
+                    completed in
+                    if completed{
+                        self.setTipView()
+                        self.percentageLabel?.text = String(self.tipFactor * 100)
+                        self.setSubtotalBefore()
+                    }
+            })
+            self.leftPanelStatus = .close
+        }
     }
 
     
@@ -286,12 +334,12 @@ extension MainViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerView == self.pickerView ? splitPickerSource.count : tipPercentPickerSource.count
+        return pickerView == self.splitPickerView ? splitPickerSource.count : tipPercentPickerSource.count
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         var attrTitle:NSAttributedString?
-        if pickerView == self.pickerView{
+        if pickerView == self.splitPickerView{
             attrTitle = NSAttributedString(string: splitPickerSource[row], attributes: [NSFontAttributeName: UIFont(name: StyleConstant.systemFontNameBold, size: 14.0), NSForegroundColorAttributeName: UIColor.black])
         }else{
              attrTitle = NSAttributedString(string: tipPercentPickerSource[row], attributes: [NSFontAttributeName: UIFont(name: StyleConstant.systemFontNameBold, size: 14.0), NSForegroundColorAttributeName: UIColor.white])
@@ -304,7 +352,14 @@ extension MainViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-       self.splitCount = 1 + row
+        if pickerView == self.splitPickerView{
+            self.splitCount = 1 + row
+        }else{
+            self.tipFactor = 0
+            if row >= 2{
+                self.tipFactor = Double((row - 1)) * 0.05
+            }
+        }
     }
     
 }

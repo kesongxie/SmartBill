@@ -13,6 +13,12 @@ func delay(_ delay:Double, closure:@escaping ()->()) {
     DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
 }
 
+func getCurrencySymbol() -> String{
+    let currencyFormatter = NumberFormatter()
+//    currencyFormatter.numberStyle = .currency
+    return currencyFormatter.currencySymbol
+}
+
 
 func getCurrenceStringFromAmount(_ amount: Double) -> String?{
     let currencyFormatter = NumberFormatter()
@@ -26,11 +32,11 @@ func initFriendSplitDataSoucre() -> [String]{
     for i in 0...maxSplitCount{
         switch i{
         case 0:
-            dataSource.append("Share Bill With")
+            dataSource.append(NSLocalizedString("Share Bill With", comment: ""))
         case 1:
-            dataSource.append("1 Friend")
+            dataSource.append("1 \(NSLocalizedString("Friend", comment: "How many friends"))")
         default:
-            dataSource.append("\(i) Friends")
+            dataSource.append("\(i) \(NSLocalizedString("Friends", comment: "How many friends"))")
         }
     }
     return dataSource

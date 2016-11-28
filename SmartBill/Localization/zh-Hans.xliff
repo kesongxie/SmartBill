@@ -141,6 +141,16 @@
         <target>正在计算</target>
         <note>The title for the view controller</note>
       </trans-unit>
+      <trans-unit id="Friend">
+        <source>Friend</source>
+        <target>个朋友</target>
+        <note>How many friends</note>
+      </trans-unit>
+      <trans-unit id="Friends">
+        <source>Friends</source>
+        <target>个朋友</target>
+        <note>How many friends</note>
+      </trans-unit>
       <trans-unit id="None">
         <source>None</source>
         <target>不计</target>
@@ -149,6 +159,11 @@
       <trans-unit id="Select Tip Percentage">
         <source>Select Tip Percentage</source>
         <target>选择小费百分比</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Share Bill With">
+        <source>Share Bill With</source>
+        <target>账单平摊</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
     </body>
