@@ -27,10 +27,15 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHW-vf-6D4">
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgk-0B-YCs">
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="60"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="light"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q7j-OB-dcq" userLabel="TipView">
                                                 <subviews>
@@ -40,7 +45,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klr-MW-itf">
-                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -50,12 +55,12 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPe-Cs-JGE">
-                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% Tips)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKX-v4-hDY">
-                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -76,24 +81,39 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utj-3d-ziL" userLabel="Detail View">
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DragIcon" translatesAutoresizingMaskIntoConstraints="NO" id="i53-gk-4r1">
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="7ul-4H-tm2"/>
-                                                            <constraint firstAttribute="height" constant="60" id="tde-WN-Pmk"/>
-                                                        </constraints>
-                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtotal = " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoH-vC-LHK">
+                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
+                                                        <color key="textColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CqW-mK-BLs">
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </pickerView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtk-na-B5P">
+                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
+                                                        <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$0.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wt2-OZ-Pgx">
+                                                        <color key="textColor" red="0.62745098040000002" green="0.0" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="50"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="i53-gk-4r1" firstAttribute="centerX" secondItem="utj-3d-ziL" secondAttribute="centerX" id="9Gy-oc-F9V"/>
-                                                    <constraint firstItem="i53-gk-4r1" firstAttribute="top" secondItem="utj-3d-ziL" secondAttribute="top" constant="30" id="J5N-lc-ewj"/>
+                                                    <constraint firstItem="Wt2-OZ-Pgx" firstAttribute="leading" secondItem="utj-3d-ziL" secondAttribute="leading" constant="20" id="891-fp-yjv"/>
+                                                    <constraint firstItem="HoH-vC-LHK" firstAttribute="top" secondItem="utj-3d-ziL" secondAttribute="top" constant="8" id="BZ4-nm-nBQ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="CqW-mK-BLs" secondAttribute="bottom" id="DFM-gm-SGi"/>
+                                                    <constraint firstItem="HoH-vC-LHK" firstAttribute="leading" secondItem="utj-3d-ziL" secondAttribute="leading" constant="20" id="FKo-ua-0Er"/>
+                                                    <constraint firstItem="Wt2-OZ-Pgx" firstAttribute="top" secondItem="Mtk-na-B5P" secondAttribute="bottom" constant="8" id="Q2u-9y-clD"/>
+                                                    <constraint firstAttribute="trailing" secondItem="CqW-mK-BLs" secondAttribute="trailing" id="bXB-DQ-qFj"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Wt2-OZ-Pgx" secondAttribute="trailing" constant="20" id="eXG-fT-jlK"/>
+                                                    <constraint firstItem="Mtk-na-B5P" firstAttribute="leading" secondItem="HoH-vC-LHK" secondAttribute="trailing" id="ivW-Fm-bjY"/>
+                                                    <constraint firstItem="CqW-mK-BLs" firstAttribute="leading" secondItem="utj-3d-ziL" secondAttribute="leading" id="nCv-C3-OPx"/>
+                                                    <constraint firstItem="Mtk-na-B5P" firstAttribute="baseline" secondItem="HoH-vC-LHK" secondAttribute="baseline" id="wuP-dw-Bug"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHW-vf-6D4">
-                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="60"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="q7j-OB-dcq" firstAttribute="trailing" secondItem="jgk-0B-YCs" secondAttribute="trailing" id="8GH-WG-sey"/>
@@ -105,7 +125,7 @@
                                             <constraint firstAttribute="trailing" secondItem="jgk-0B-YCs" secondAttribute="trailing" constant="20" symbolic="YES" id="M1F-yI-y0t"/>
                                             <constraint firstItem="FjC-dj-Qmi" firstAttribute="top" secondItem="y93-jQ-FgT" secondAttribute="top" constant="20" id="Nim-fQ-Z7a"/>
                                             <constraint firstAttribute="trailing" secondItem="utj-3d-ziL" secondAttribute="trailing" id="Z1q-gP-atV"/>
-                                            <constraint firstItem="utj-3d-ziL" firstAttribute="top" secondItem="q7j-OB-dcq" secondAttribute="bottom" constant="29" id="e7d-q8-8MP"/>
+                                            <constraint firstItem="utj-3d-ziL" firstAttribute="top" secondItem="q7j-OB-dcq" secondAttribute="bottom" constant="16" id="e7d-q8-8MP"/>
                                             <constraint firstItem="q7j-OB-dcq" firstAttribute="leading" secondItem="pHW-vf-6D4" secondAttribute="leading" id="eNb-5V-u9d"/>
                                             <constraint firstItem="q7j-OB-dcq" firstAttribute="top" secondItem="pHW-vf-6D4" secondAttribute="bottom" constant="5" id="iDO-qO-kga"/>
                                             <constraint firstItem="utj-3d-ziL" firstAttribute="leading" secondItem="y93-jQ-FgT" secondAttribute="leading" id="pfZ-cx-nf4"/>
@@ -132,13 +152,23 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="utj-3d-ziL" secondAttribute="bottom" id="riT-pV-36Z"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="SMART BILL" id="hCe-bU-kCs"/>
+                    <navigationItem key="navigationItem" title="SMART BILL" id="hCe-bU-kCs">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="2oe-OY-Sy1">
+                            <color key="tintColor" red="0.62745098040000002" green="0.0" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="JMa-0e-Oep" kind="show" id="Vdk-EQ-qAL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="billTextField" destination="jgk-0B-YCs" id="G6r-jA-kGg"/>
                         <outlet property="currencySymbol" destination="pHW-vf-6D4" id="diF-HT-oOC"/>
-                        <outlet property="dragIconImageView" destination="i53-gk-4r1" id="Lsw-bM-WVe"/>
                         <outlet property="percentageLabel" destination="TPe-Cs-JGE" id="8eQ-xO-M1p"/>
+                        <outlet property="pickerView" destination="CqW-mK-BLs" id="PHg-wY-fCC"/>
                         <outlet property="scrollView" destination="jD8-Wx-V92" id="cMZ-qZ-gAd"/>
+                        <outlet property="settingBtn" destination="2oe-OY-Sy1" id="4vA-gY-GIb"/>
+                        <outlet property="subTotalAfterStaticTextField" destination="Wt2-OZ-Pgx" id="d4a-A7-4mz"/>
+                        <outlet property="subtotalBeforeLabel" destination="Mtk-na-B5P" id="ff7-ch-XUQ"/>
                         <outlet property="tipAmountLabel" destination="klr-MW-itf" id="YYm-Gd-Ner"/>
                         <outlet property="tipView" destination="q7j-OB-dcq" id="87w-cB-EBd"/>
                     </connections>
@@ -146,6 +176,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1080.8" y="87.706146926536732"/>
+        </scene>
+        <!--SETTINGS-->
+        <scene sceneID="Au3-bz-zoa">
+            <objects>
+                <viewController id="JMa-0e-Oep" customClass="SettingsViewController" customModule="SmartBill" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pvn-zQ-gaR"/>
+                        <viewControllerLayoutGuide type="bottom" id="DUR-Oh-diA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dXa-KH-mDz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="SETTINGS" id="N2A-89-64M">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="9xy-Hy-v8R">
+                            <color key="tintColor" red="0.62745098040000002" green="0.0" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="backBtnTapped:" destination="JMa-0e-Oep" id="SMe-NW-55f"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backBtn" destination="9xy-Hy-v8R" id="hXH-FI-zm1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y3c-Kv-Ibf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2604" y="5"/>
+        </scene>
+        <!--SETTINGS-->
+        <scene sceneID="uQ8-1Z-3eB">
+            <objects>
+                <tableViewController id="UIE-pX-M22" customClass="SettingsTableViewController" customModule="SmartBill" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="4AH-R3-vz7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection headerTitle="Tips Percentage" id="OVA-fq-R6j">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="278" id="kvu-re-kcF">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="278"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kvu-re-kcF" id="Dch-3u-koH">
+                                            <frame key="frameInset" width="375" height="277"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6o-Xm-VpK"/>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="p6o-Xm-VpK" secondAttribute="trailing" id="Mqk-B7-0Yc"/>
+                                                <constraint firstItem="p6o-Xm-VpK" firstAttribute="top" secondItem="Dch-3u-koH" secondAttribute="top" id="Npb-WN-4qj"/>
+                                                <constraint firstItem="p6o-Xm-VpK" firstAttribute="leading" secondItem="Dch-3u-koH" secondAttribute="leading" id="dKO-Xn-WPw"/>
+                                                <constraint firstAttribute="bottom" secondItem="p6o-Xm-VpK" secondAttribute="bottom" id="sYw-Cd-Kmb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="UIE-pX-M22" id="dph-3F-crQ"/>
+                            <outlet property="delegate" destination="UIE-pX-M22" id="ItZ-lh-S5H"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="SETTINGS" id="oyK-I0-TJz">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="Lvi-vE-rQX">
+                            <color key="tintColor" red="0.62745098040000002" green="0.0" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="backBtnTapped:" destination="UIE-pX-M22" id="L0d-T0-cIp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backBtn" destination="Lvi-vE-rQX" id="E9O-gY-D4y"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Urb-b1-Q8x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2066" y="463"/>
         </scene>
         <!--Main Navigation View Controller-->
         <scene sceneID="weP-mc-fLJ">
@@ -166,7 +278,4 @@
             <point key="canvasLocation" x="141.59999999999999" y="87.706146926536732"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="DragIcon" width="60" height="60"/>
-    </resources>
 </document>

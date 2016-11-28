@@ -1,25 +1,36 @@
 //
-//  TipNavigationViewController.swift
+//  SettingsViewController.swift
 //  SmartBill
 //
-//  Created by Xie kesong on 11/25/16.
+//  Created by Xie kesong on 11/27/16.
 //  Copyright © 2016 ___KesongXie___. All rights reserved.
 //
 
 import UIKit
 
-class MainNavigationViewController: UINavigationController {
+class SettingsViewController: UIViewController {
 
+    
+    @IBOutlet weak var backBtn: UIBarButtonItem!{
+        didSet{
+            backBtn.stylized()
+        }
+    }
+    
+    @IBAction func backBtnTapped(_ sender: UIBarButtonItem) {
+        let _ = self.navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
     /*
     // MARK: - Navigation

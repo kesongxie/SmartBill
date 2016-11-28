@@ -16,22 +16,34 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var currencySymbol: UILabel!
     
+    @IBOutlet weak var tipView: UIView!
+
     @IBOutlet weak var tipAmountLabel: UILabel!
     
     @IBOutlet weak var percentageLabel: UILabel!
     
-    @IBOutlet weak var tipView: UIView!
+    @IBOutlet weak var subtotalAfterLabel: UILabel!
     
-    @IBOutlet weak var dragIconImageView: UIImageView!
+    @IBOutlet weak var subTotalAfterStaticTextField: UITextField!
     
-    var tipFactor: Double?{
+    @IBOutlet weak var subtotalBeforeLabel: UILabel!
+
+    @IBOutlet weak var pickerView: UIPickerView!
+
+    @IBOutlet weak var settingBtn: UIBarButtonItem!{
         didSet{
-            percentageLabel?.text = String(tipFactor! * 100)
+           settingBtn.stylized()
+        }
+    }
+    
+    var tipFactor: Double!{
+        didSet{
+            percentageLabel?.text = String(tipFactor * 100)
         }
     }
     
     //max character input for bill text field
-    let maxCharCount = 8
+    let maxCharCount = 12
     
     // numerical value for tip
     var billAmount: Double = 0
@@ -42,15 +54,47 @@ class MainViewController: UIViewController {
         }
     }
     
+    var calculating: Bool = false{
+        didSet{
+            delay(2.0, closure: {
+                self.updateTitle(status: .initial)
+            })
+        }
+    }
+    
+    var subTotalAfter: Double = 0{
+        didSet{
+            self.subTotalAfterStaticTextField?.text = getCurrenceStringFromAmount(self.subTotalAfter)
+        }
+    }
+    
+    
+    var subtotalBefore: Double = 0{
+        didSet{
+            self.subtotalBeforeLabel?.text = getCurrenceStringFromAmount(self.subtotalBefore)
+            updateSubtotalAfter()
+        }
+    }
+    
+    var splitCount: Int = 1 {
+        didSet{
+            self.updateSubtotalAfter()
+        }
+    }
+    
     enum titleStatus{
         case refreshing
         case initial
     }
     
+    var pickerSource = initFriendSplitDataSoucre()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Update UI
+        setView()
         setScrollView()
+        setPickerView()
         setNavigationBarUI()
         setBillTextField()
         setTipFactor()
@@ -62,19 +106,38 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+       
     /*
      * MARK: - UI Set Up
+     *       - view set up
+     *       - keyboard set up
      *       - scrollView set up
+     *       - set up pickeer view
      *       - set Bill Text Field
      *       - Update navigation bar UI
-     *       - update TipView UI
+     *       - controller title update
      */
     
+    
+    /*
+        Add tap gesture to the view
+     */
+    func setView(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped))
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    
+  
     func setScrollView(){
         self.scrollView.alwaysBounceVertical = true
         self.scrollView.delegate = self
     }
+    
+    func setPickerView(){
+        self.pickerView.delegate = self
+        self.pickerView.dataSource = self
+    }
+    
     
     func setBillTextField(){
         self.billTextField.delegate = self
@@ -91,35 +154,6 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = false
     }
     
-    func setTipView(){
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.numberStyle = .currency
-        let amount = billAmount
-        let tipNum = (amount * tipFactor!) as NSNumber
-        self.tipAmount = currencyFormatter.string(from: tipNum)
-    }
-    
-    func setTipFactor(){
-        self.tipFactor = 0.15
-    }
-    
-    /*
-     * MARK: - Bill text field control event
-     */
- 
-    func billTextFieldTextDidChange(){
-        if let billString = self.billTextField.text{
-            let noneCurrencyFormatter = NumberFormatter()
-            if let num = noneCurrencyFormatter.number(from: billString) as? Double{
-                self.billAmount = num
-            }else{
-                self.billAmount = 0
-            }
-            setTipView()
-        }
-    }
-    
-    
     func updateTitle(status: titleStatus){
         switch status{
         case .initial:
@@ -128,23 +162,64 @@ class MainViewController: UIViewController {
             self.title = "CALCULATING..."
         }
     }
-    
-    func toggleDragIconRotation(){
-        self.dragIconImageView.transform = CGAffineTransform(rotationAngle: (180.0 * CGFloat(M_PI)) / 180.0)
 
+    /*
+     * MARK: - Set data model
+     *       - set tip amount
+     *       - set tip factor
+     *       - set subtotal before the split
+     *       - set subtotal after the split
+     *       - selector when view is tapped
+     */
+    func setTipView(){
+        self.tipAmount = getCurrenceStringFromAmount(billAmount * tipFactor)
     }
     
+    func setTipFactor(){
+        self.tipFactor = 0.15
+    }
    
+    func setSubtotalBefore(){
+        self.subtotalBefore = billAmount * (1 + tipFactor)
+    }
+
     
-    /*
+    func updateSubtotalAfter(){
+        self.subTotalAfter = subtotalBefore / Double(self.splitCount)
+    }
+    
+    
+    func viewTapped(){
+        view.endEditing(true)
+    }
+
+    
+    /* MARK: - Bill text field control event
+     */
+ 
+    func billTextFieldTextDidChange(){
+        if let billString = self.billTextField.text{
+            calculating = true
+            updateTitle(status: .refreshing)
+            let noneCurrencyFormatter = NumberFormatter()
+            if let num = noneCurrencyFormatter.number(from: billString) as? Double{
+                self.billAmount = num
+            }else{
+                self.billAmount = 0
+            }
+            setTipView()
+            setSubtotalBefore()
+        }
+    }
+    
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+     //In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        view.endEditing(true)
     }
-    */
+    
 }
 
 extension MainViewController: UITextFieldDelegate{
@@ -167,41 +242,39 @@ extension MainViewController: UITextFieldDelegate{
         }
         return true
     }
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        //self.toggleDragIconRotation()
-        return true
-    }
-    
 }
 
 extension MainViewController: UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y < -40{
-            UIView.animate(withDuration: 0.3, animations: {
-                self.billTextField.resignFirstResponder()
-                self.updateTitle(status: .refreshing)
-                UIView.animate(withDuration: 1.0,
-                    animations: {
-                        self.toggleDragIconRotation()
-                    },
-                    completion: {
-                        completed in
-                        if completed{
-                          //  self.dragIconImageView.isHidden = true
-                        }
-                    })
-            })
+            self.billTextField.resignFirstResponder()
         }
     }
-    
-    
 }
 
-
-
-
-
+extension MainViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerSource.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let attrTitle = NSAttributedString(string: pickerSource[row], attributes: [NSFontAttributeName: UIFont(name: StyleConstant.systemFontNameBold, size: 14.0), NSForegroundColorAttributeName: UIColor.black])
+        return attrTitle
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 40.0
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+       self.splitCount = 1 + row
+    }
+    
+}
 
 
 

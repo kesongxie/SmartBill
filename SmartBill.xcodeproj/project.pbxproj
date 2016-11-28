@@ -15,6 +15,10 @@
 		984174AB1DEAA52500BA64E3 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984174A81DEAA52500BA64E3 /* MainNavigationViewController.swift */; };
 		984174AD1DEAA53F00BA64E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 984174AC1DEAA53F00BA64E3 /* Main.storyboard */; };
 		984174B01DEACFA300BA64E3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984174AF1DEACFA300BA64E3 /* Config.swift */; };
+		989A1DD11DEB7F3000484A33 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989A1DD01DEB7F3000484A33 /* Helper.swift */; };
+		989A1DD31DEB9EBB00484A33 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989A1DD21DEB9EBB00484A33 /* SettingsViewController.swift */; };
+		989A1DD61DEBA3C800484A33 /* BarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989A1DD51DEBA3C800484A33 /* BarButtonItemExtension.swift */; };
+		989A1DD81DEBAD1800484A33 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989A1DD71DEBAD1800484A33 /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		984174A81DEAA52500BA64E3 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		984174AC1DEAA53F00BA64E3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		984174AF1DEACFA300BA64E3 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		989A1DD01DEB7F3000484A33 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		989A1DD21DEB9EBB00484A33 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		989A1DD51DEBA3C800484A33 /* BarButtonItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarButtonItemExtension.swift; sourceTree = "<group>"; };
+		989A1DD71DEBAD1800484A33 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +69,12 @@
 			isa = PBXGroup;
 			children = (
 				984174941DEAA51300BA64E3 /* AppDelegate.swift */,
+				989A1DD41DEBA3AC00484A33 /* Extension */,
 				984174AE1DEAA55A00BA64E3 /* Macro */,
 				984174A81DEAA52500BA64E3 /* MainNavigationViewController.swift */,
 				984174A61DEAA52500BA64E3 /* MainViewController.swift */,
+				989A1DD21DEB9EBB00484A33 /* SettingsViewController.swift */,
+				989A1DD71DEBAD1800484A33 /* SettingsTableViewController.swift */,
 				9841749B1DEAA51300BA64E3 /* Assets.xcassets */,
 				984174AC1DEAA53F00BA64E3 /* Main.storyboard */,
 				9841749D1DEAA51300BA64E3 /* LaunchScreen.storyboard */,
@@ -77,8 +88,17 @@
 			children = (
 				984174A71DEAA52500BA64E3 /* StyleConstant.swift */,
 				984174AF1DEACFA300BA64E3 /* Config.swift */,
+				989A1DD01DEB7F3000484A33 /* Helper.swift */,
 			);
 			name = Macro;
+			sourceTree = "<group>";
+		};
+		989A1DD41DEBA3AC00484A33 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				989A1DD51DEBA3C800484A33 /* BarButtonItemExtension.swift */,
+			);
+			name = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,9 +176,13 @@
 			files = (
 				984174A91DEAA52500BA64E3 /* MainViewController.swift in Sources */,
 				984174AB1DEAA52500BA64E3 /* MainNavigationViewController.swift in Sources */,
+				989A1DD31DEB9EBB00484A33 /* SettingsViewController.swift in Sources */,
 				984174B01DEACFA300BA64E3 /* Config.swift in Sources */,
+				989A1DD61DEBA3C800484A33 /* BarButtonItemExtension.swift in Sources */,
 				984174AA1DEAA52500BA64E3 /* StyleConstant.swift in Sources */,
 				984174951DEAA51300BA64E3 /* AppDelegate.swift in Sources */,
+				989A1DD11DEB7F3000484A33 /* Helper.swift in Sources */,
+				989A1DD81DEBAD1800484A33 /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +336,7 @@
 				984174A51DEAA51300BA64E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
