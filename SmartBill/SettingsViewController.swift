@@ -17,10 +17,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    @IBAction func backBtnTapped(_ sender: UIBarButtonItem) {
-        let _ = self.navigationController?.popViewController(animated: true)
-    }
-    
+       
     override func viewDidLoad() {
         super.viewDidLoad()
     }

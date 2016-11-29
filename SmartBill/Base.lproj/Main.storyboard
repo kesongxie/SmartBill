@@ -254,7 +254,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Back" id="9xy-Hy-v8R">
                             <color key="tintColor" red="0.62745098040000002" green="0.0" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="backBtnTapped:" destination="JMa-0e-Oep" id="SMe-NW-55f"/>
+                                <segue destination="8oP-II-5tG" kind="unwind" unwindAction="backFromSettingsWithSegue:" id="YEL-II-AoR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -263,8 +263,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3c-Kv-Ibf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8oP-II-5tG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2604" y="5"/>
+            <point key="canvasLocation" x="2428" y="81"/>
         </scene>
         <!--SETTINGS-->
         <scene sceneID="uQ8-1Z-3eB">
@@ -317,7 +318,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Urb-b1-Q8x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2066" y="463"/>
+            <point key="canvasLocation" x="2162" y="834"/>
         </scene>
         <!--Main Navigation View Controller-->
         <scene sceneID="weP-mc-fLJ">

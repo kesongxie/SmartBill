@@ -10,6 +10,12 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    //unwind segue from setting
+    @IBAction func backFromSettings(segue: UIStoryboardSegue){
+        //do some configuration when return from settings
+    }
+
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var billTextField: UITextField!
@@ -106,13 +112,13 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var weekDayLabel: UILabel!{
         didSet{
-            self.weekDayLabel.text = Date().weekDayString.uppercased()
+            self.weekDayLabel.text = Date().weekDayString.capitalized
         }
     }
     
     @IBOutlet weak var monthLabel: UILabel!{
         didSet{
-            self.monthLabel.text = Date().monthString.uppercased()
+            self.monthLabel.text = Date().monthString.capitalized
         }
     }
     
@@ -144,13 +150,19 @@ class MainViewController: UIViewController {
         setSubtotalBefore()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.billTextField.becomeFirstResponder()
     }
     
-   
-
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if self.leftPanelStatus == .open{
+            //close it
+            self.closeLeftPanel()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -245,42 +257,49 @@ class MainViewController: UIViewController {
         billTextField.resignFirstResponder()
     }
     
+    func openLeftPanel(){
+        UIView.animate(withDuration: 0.3,
+        animations: {
+        self.leftPanel.frame.origin.x = 0
+        self.overlayView.alpha = 0.6
+        },
+        completion:{
+            completed in
+            if completed{
+                self.leftPanelStatus = .open
+            }
+            self.tipPercentPickerView.selectRow(rowForPickerFromTipFactor(self.tipFactor), inComponent: 0, animated: true)
+        })
+    }
+    
+    func closeLeftPanel(){
+        UIView.animate(withDuration: 0.3,
+        animations: {
+            self.leftPanel.frame.origin.x = -self.leftPanel.frame.size.width
+            self.overlayView.alpha = 0
+        },
+        completion:{
+            completed in
+                if completed{
+                self.setTipView()
+                self.percentageLabel?.text = String(self.tipFactor * 100)
+                self.setSubtotalBefore()
+            }
+        })
+        self.leftPanelStatus = .close
+    }
+    
+    
     func toggleLeftPanel(){
-     
-        
         switch self.leftPanelStatus{
         case .close:
             //open
             delay(0.5, closure: {
-                UIView.animate(withDuration: 0.3,
-                animations: {
-                    self.leftPanel.frame.origin.x = 0
-                    self.overlayView.alpha = 0.6
-                    },
-                completion:{
-                    completed in
-                    if completed{
-                        self.leftPanelStatus = .open
-                    }
-                    self.tipPercentPickerView.selectRow(rowForPickerFromTipFactor(self.tipFactor), inComponent: 0, animated: true)
-                })
+                self.openLeftPanel()
             })
         case .open:
             //close
-            UIView.animate(withDuration: 0.3,
-            animations: {
-                self.leftPanel.frame.origin.x = -self.leftPanel.frame.size.width
-                self.overlayView.alpha = 0
-            },
-            completion:{
-                completed in
-                if completed{
-                    self.setTipView()
-                    self.percentageLabel?.text = String(self.tipFactor * 100)
-                    self.setSubtotalBefore()
-                }
-            })
-            self.leftPanelStatus = .close
+            self.closeLeftPanel()
         }
     }
 
@@ -376,7 +395,6 @@ extension MainViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             }
         }
     }
-    
 }
 
 

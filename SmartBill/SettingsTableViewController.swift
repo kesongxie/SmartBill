@@ -20,10 +20,6 @@ class SettingsTableViewController: UITableViewController {
         let _ = self.navigationController?.popViewController(animated: true)
     }
 
-
-//    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
