@@ -15,7 +15,6 @@ func delay(_ delay:Double, closure:@escaping ()->()) {
 
 func getCurrencySymbol() -> String{
     let currencyFormatter = NumberFormatter()
-//    currencyFormatter.numberStyle = .currency
     return currencyFormatter.currencySymbol
 }
 
@@ -41,3 +40,35 @@ func initFriendSplitDataSoucre() -> [String]{
     }
     return dataSource
 }
+
+
+// Save the tip factor to the NSUserDefault
+func saveTipFactor(_ tipFactor: Double){
+    UserDefaults.standard.set(tipFactor, forKey: tipFactorKey)
+}
+
+// Get the tip factor from the NSUserDefault
+func getTipFactor() -> Double{
+    return UserDefaults.standard.double(forKey: tipFactorKey)
+}
+
+func tipFactorFromPickerRowIndex(_ row: Int) -> Double{
+    return Double((row - 1)) * 0.05
+}
+
+func rowForPickerFromTipFactor(_ tipFactor: Double) -> Int{
+    return Int(tipFactor / 0.05) + 1
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

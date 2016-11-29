@@ -36,7 +36,12 @@ class MainViewController: UIViewController {
         }
     }
     
-    var tipFactor: Double! = 0
+    var tipFactor: Double! = getTipFactor(){
+        didSet{
+            //save to NSUserDefault
+            saveTipFactor(tipFactor)
+        }
+    }
     
     //max character input for bill text field
     let maxCharCount = 12
@@ -135,7 +140,6 @@ class MainViewController: UIViewController {
         setCurrencySymbol()
         setNavigationBarUI()
         setBillTextField()
-        setTipFactor()
         setTipView()
         setSubtotalBefore()
     }
@@ -227,10 +231,6 @@ class MainViewController: UIViewController {
         self.percentageLabel.text = "\(tipFactor * 100)"
     }
     
-    func setTipFactor(){
-        self.tipFactor = 0.15
-    }
-   
     func setSubtotalBefore(){
         self.subtotalBefore = billAmount * (1 + tipFactor)
     }
@@ -242,30 +242,43 @@ class MainViewController: UIViewController {
     
     
     func viewTapped(){
-        view.endEditing(true)
+        billTextField.resignFirstResponder()
     }
     
     func toggleLeftPanel(){
+     
+        
         switch self.leftPanelStatus{
         case .close:
             //open
-            UIView.animate(withDuration: 0.3, animations: {
-                self.leftPanel.frame.origin.x = 0
-                self.overlayView.alpha = 0.6
-            })
-            self.leftPanelStatus = .open
-        case .open:
-            //close
-            UIView.animate(withDuration: 0.3, animations: {
-                self.leftPanel.frame.origin.x = -self.leftPanel.frame.size.width
-                self.overlayView.alpha = 0
-                }, completion:{
+            delay(0.5, closure: {
+                UIView.animate(withDuration: 0.3,
+                animations: {
+                    self.leftPanel.frame.origin.x = 0
+                    self.overlayView.alpha = 0.6
+                    },
+                completion:{
                     completed in
                     if completed{
-                        self.setTipView()
-                        self.percentageLabel?.text = String(self.tipFactor * 100)
-                        self.setSubtotalBefore()
+                        self.leftPanelStatus = .open
                     }
+                    self.tipPercentPickerView.selectRow(rowForPickerFromTipFactor(self.tipFactor), inComponent: 0, animated: true)
+                })
+            })
+        case .open:
+            //close
+            UIView.animate(withDuration: 0.3,
+            animations: {
+                self.leftPanel.frame.origin.x = -self.leftPanel.frame.size.width
+                self.overlayView.alpha = 0
+            },
+            completion:{
+                completed in
+                if completed{
+                    self.setTipView()
+                    self.percentageLabel?.text = String(self.tipFactor * 100)
+                    self.setSubtotalBefore()
+                }
             })
             self.leftPanelStatus = .close
         }

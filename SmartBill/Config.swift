@@ -8,3 +8,5 @@
 
 let AppName = "SMART BILL"
 let maxSplitCount = 8
+//the key for manipulating the the tip factor for the user default
+let tipFactorKey = "TipFactorKey"
