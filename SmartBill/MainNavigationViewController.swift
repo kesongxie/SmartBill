@@ -9,8 +9,6 @@
 import UIKit
 
 class MainNavigationViewController: UINavigationController {
-
-       
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +20,8 @@ class MainNavigationViewController: UINavigationController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+  
     /*
     // MARK: - Navigation
 

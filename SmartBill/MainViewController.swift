@@ -42,10 +42,10 @@ class MainViewController: UIViewController {
         }
     }
     
-    var tipFactor: Double! = getTipFactor(){
+    var tipFactor: Double! = UserDefaults.getTipFactor(){
         didSet{
             //save to NSUserDefault
-            saveTipFactor(tipFactor)
+            UserDefaults.saveTipFactor(tipFactor)
         }
     }
     
@@ -60,7 +60,14 @@ class MainViewController: UIViewController {
             self.tipAmountLabel.text = tipAmount
         }
     }
-    
+
+    // possible state for the title
+    enum titleStatus{
+        case refreshing
+        case initial
+    }
+
+    // A flag indicating whether the user is currently editing
     var calculating: Bool = false{
         didSet{
             delay(2.0, closure: {
@@ -69,16 +76,19 @@ class MainViewController: UIViewController {
         }
     }
     
-    var subTotalAfter: Double = 0{
-        didSet{
-            self.subTotalAfterStaticTextField?.text = getCurrenceStringFromAmount(self.subTotalAfter)
-        }
-    }
     
+    // subtotal before the split
     var subtotalBefore: Double = 0{
         didSet{
             self.subtotalBeforeLabel?.text = getCurrenceStringFromAmount(self.subtotalBefore)
             updateSubtotalAfter()
+        }
+    }
+    
+    // subtotal after the split
+    var subTotalAfter: Double = 0{
+        didSet{
+            self.subTotalAfterStaticTextField?.text = getCurrenceStringFromAmount(self.subTotalAfter)
         }
     }
     
@@ -88,20 +98,13 @@ class MainViewController: UIViewController {
         }
     }
     
-    enum titleStatus{
-        case refreshing
-        case initial
-    }
-    
     var splitPickerSource = initFriendSplitDataSoucre()
     
-    /*
-     * MARK: - slider properties
-     */
+    
+    // MARK: - slider properties
     @IBOutlet weak var leftPanel: UIView!
     
     @IBOutlet weak var overlayView: UIView!
-    
     
     @IBAction func hamIconTapped(_ sender: UIBarButtonItem) {
         self.view.endEditing(true)
@@ -137,22 +140,26 @@ class MainViewController: UIViewController {
     
     var tipPercentPickerSource = [NSLocalizedString("Select Tip Percentage", comment:""), NSLocalizedString("None", comment:"tips selection none"), "5%", "10%","15%", "20%", "25%", "30%"]
     
+    
+    
+    // MARK: - view conrtoller life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Update UI
-        setView()
-        setScrollView()
-        setPickerView()
-        setCurrencySymbol()
-        setNavigationBarUI()
-        setBillTextField()
-        setTipView()
-        setSubtotalBefore()
+        // App setup and Update UI
+        self.appInit()
+        self.setScrollView()
+        self.setPickerView()
+        self.setCurrencySymbol()
+        self.setNavigationBarUI()
+        self.setBillTextField()
+        self.setTipView()
+        self.setSubtotalBefore()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.billTextField.becomeFirstResponder()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -163,15 +170,15 @@ class MainViewController: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func appWillTerminated(notification: Notification){
+        //save bill amount to the user default with timestamp associated with it
+        UserDefaults.saveBillAmountForNow(self.billTextField.text!)
     }
     
-       
+    
     /*
-     * MARK: - UI Set Up
-     *       - view set up
+     * MARK: - App Init
+     *       - UI Set Up
      *       - set up Slider View
      *       - keyboard set up
      *       - scrollView set up
@@ -181,10 +188,11 @@ class MainViewController: UIViewController {
      *       - controller title update
      */
     
-    /*
-        Add tap gesture to the view
-     */
-    func setView(){
+    /* Add tap gesture to the view  */
+    func appInit(){
+        self.restoreState()
+        self.billTextField.becomeFirstResponder()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.appWillTerminated(notification:)), name: NotificationName.AppWillTerminate, object: nil)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped))
         self.view.addGestureRecognizer(tapGesture)
     }
@@ -208,7 +216,6 @@ class MainViewController: UIViewController {
     
     func setBillTextField(){
         self.billTextField.delegate = self
-      //  self.billTextField.becomeFirstResponder()
         self.billTextField.addTarget(self, action: #selector(self.billTextFieldTextDidChange), for: UIControlEvents.editingChanged)
         if let placeHolder = self.billTextField.placeholder{
             self.billTextField.attributedPlaceholder = NSAttributedString(string: placeHolder, attributes: [NSForegroundColorAttributeName: UIColor(red: 255 / 255.0, green: 255 / 255.0, blue: 255 / 255.0, alpha: 0.6)])
@@ -218,7 +225,7 @@ class MainViewController: UIViewController {
     func setNavigationBarUI(){
         self.navigationController?.navigationBar.barTintColor = StyleConstant.NavigationBar.backgroundColor
         self.navigationController?.navigationBar.titleTextAttributes = StyleConstant.NavigationBar.titleTextAttribute
-        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.isTranslucent = StyleConstant.NavigationBar.translucent
     }
     
     func updateTitle(status: titleStatus){
@@ -229,20 +236,26 @@ class MainViewController: UIViewController {
             self.title = NSLocalizedString("CALCULATING...", comment: "The title for the view controller")
         }
     }
+    
+    /* billTextField resign first responder, Hide the keyboard */
+    func viewTapped(){
+        self.billTextField.resignFirstResponder()
+    }
 
-    /*
-     * MARK: - Set data model
+
+    
+    /* MARK: - Set data model
      *       - set tip amount
      *       - set tip factor
      *       - set subtotal before the split
-     *       - set subtotal after the split
-     *       - selector when view is tapped
-     */
+     *       - set subtotal after the split */
     func setTipView(){
         self.tipAmount = getCurrenceStringFromAmount(billAmount * tipFactor)
         self.percentageLabel.text = "\(tipFactor * 100)"
     }
     
+    /* This function is responsible for updating the subtotal, any subsequent 
+     * UI will be adjusted correspondingly */
     func setSubtotalBefore(){
         self.subtotalBefore = billAmount * (1 + tipFactor)
     }
@@ -253,10 +266,7 @@ class MainViewController: UIViewController {
     }
     
     
-    func viewTapped(){
-        billTextField.resignFirstResponder()
-    }
-    
+    // MARK: -Left panel control
     func openLeftPanel(){
         UIView.animate(withDuration: 0.3,
         animations: {
@@ -289,7 +299,6 @@ class MainViewController: UIViewController {
         self.leftPanelStatus = .close
     }
     
-    
     func toggleLeftPanel(){
         switch self.leftPanelStatus{
         case .close:
@@ -302,11 +311,8 @@ class MainViewController: UIViewController {
             self.closeLeftPanel()
         }
     }
-
     
-    /* MARK: - Bill text field control event
-     */
- 
+    // MARK: - Bill text field control event
     func billTextFieldTextDidChange(){
         if let billString = self.billTextField.text{
             calculating = true
@@ -317,21 +323,45 @@ class MainViewController: UIViewController {
             }else{
                 self.billAmount = 0
             }
-            setTipView()
-            setSubtotalBefore()
+            self.setTipView()
+            self.setSubtotalBefore()
+        }
+    }
+    
+
+    /*  Restore the bill amount information if the user reopen the app again within
+     *  a certain time */
+    func restoreState(){
+        if let billAmountInfo = UserDefaults.getBillAmount(){
+            //check whether the old bill amount should be used for display or not
+            if let date = billAmountInfo["timestamp"] as? Date{
+                let minutesAgo = -date.timeIntervalSinceNow / 60
+                if minutesAgo <= 30{
+                    //restore
+                    if let billString = billAmountInfo["amount"] as? String{
+                        if let amount = Double(billString){
+                            self.billAmount = amount
+                            self.billTextField.text = billString
+                        }
+                    }
+                }else{
+                    //clear the old data
+                    UserDefaults.clearBillAmountHistory()
+                }
+            }
         }
     }
     
     
     // MARK: - Navigation
-
-     //In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        view.endEditing(true)
+        self.view.endEditing(true)
     }
     
 }
 
+
+// MARK: - UITextFieldDelegate
 extension MainViewController: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let billString = textField.text{
@@ -354,6 +384,7 @@ extension MainViewController: UITextFieldDelegate{
     }
 }
 
+// MARK: - UIScrollViewDelegate
 extension MainViewController: UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y < -40{
@@ -362,7 +393,8 @@ extension MainViewController: UIScrollViewDelegate{
     }
 }
 
-extension MainViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+// MARK: - UIPickerViewDelegate, UIPickerViewDataSource
+ extension MainViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -374,10 +406,11 @@ extension MainViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         var attrTitle:NSAttributedString?
         if pickerView == self.splitPickerView{
-            attrTitle = NSAttributedString(string: splitPickerSource[row], attributes: [NSFontAttributeName: UIFont(name: StyleConstant.systemFontNameBold, size: 14.0), NSForegroundColorAttributeName: UIColor.black])
+            attrTitle = NSAttributedString(string: splitPickerSource[row], attributes: StyleConstant.SplitPikcerView.titleAttribute)
         }else{
-             attrTitle = NSAttributedString(string: tipPercentPickerSource[row], attributes: [NSFontAttributeName: UIFont(name: StyleConstant.systemFontNameBold, size: 14.0), NSForegroundColorAttributeName: UIColor.white])
+            attrTitle = NSAttributedString(string: tipPercentPickerSource[row], attributes: StyleConstant.TipPercentPickerView.titleAttribute)
         }
+        
         return attrTitle
     }
     
@@ -396,6 +429,5 @@ extension MainViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         }
     }
 }
-
 
 
