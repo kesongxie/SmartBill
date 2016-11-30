@@ -12,7 +12,7 @@ extension UserDefaults{
     
     // Save the bill amount to the NSUserDefault
     static func saveBillAmountForNow(_ amount: String){
-        let data: [String: Any] = [ "amount": amount, "timestamp": NSDate()]
+        let data: [String: Any] = [BillAmountInfoAmountKey: amount, BillAmountInfoDateKey: NSDate()]
         UserDefaults.standard.set(data, forKey: UserDefaultKey.billAmount)
     }
     

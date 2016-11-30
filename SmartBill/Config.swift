@@ -7,6 +7,8 @@
 //
 
 let AppName = "SMART BILL"
-let maxSplitCount = 8
-
-
+let MaxSplitCount = 8
+// 10 minutes for the state to be restorable
+let ExpireDuration = 10.0
+let BillAmountInfoDateKey = "BillAmountInfoDate"
+let BillAmountInfoAmountKey = "billAmountInfoAmount"

@@ -28,7 +28,7 @@ func getCurrenceStringFromAmount(_ amount: Double) -> String?{
 func initFriendSplitDataSoucre() -> [String]{
     //["Share Bill With", "1 Friend", "2 Friends"]
     var dataSource = [String]()
-    for i in 0...maxSplitCount{
+    for i in 0...MaxSplitCount{
         switch i{
         case 0:
             dataSource.append(NSLocalizedString("Share Bill With", comment: ""))
@@ -50,30 +50,6 @@ func tipFactorFromPickerRowIndex(_ row: Int) -> Double{
 func rowForPickerFromTipFactor(_ tipFactor: Double) -> Int{
     return Int(tipFactor / 0.05) + 1
 }
-
-//
-//// Save the bill amount to the NSUserDefault
-//func saveBillAmount(_ amount: Double){
-//    UserDefaults.standard.set(amount, forKey: UserDefaultKey.billAmount)
-//}
-//
-//// Get the tip factor from the NSUserDefault
-//func getBillAmount() -> Double{
-//    return UserDefaults.standard.double(forKey: UserDefaultKey.billAmount)
-//}
-//
-//
-//// Save the tip factor to the NSUserDefault
-//func saveTipFactor(_ tipFactor: Double){
-//    UserDefaults.standard.set(tipFactor, forKey: UserDefaultKey.tipFactor)
-//}
-//
-//// Get the tip factor from the NSUserDefault
-//func getTipFactor() -> Double{
-//    return UserDefaults.standard.double(forKey: UserDefaultKey.tipFactor)
-//}
-//
-
 
 
 

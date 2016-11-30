@@ -334,11 +334,11 @@ class MainViewController: UIViewController {
     func restoreState(){
         if let billAmountInfo = UserDefaults.getBillAmount(){
             //check whether the old bill amount should be used for display or not
-            if let date = billAmountInfo["timestamp"] as? Date{
+            if let date = billAmountInfo[BillAmountInfoDateKey] as? Date{
                 let minutesAgo = -date.timeIntervalSinceNow / 60
-                if minutesAgo <= 30{
+                if minutesAgo <= ExpireDuration{
                     //restore
-                    if let billString = billAmountInfo["amount"] as? String{
+                    if let billString = billAmountInfo[BillAmountInfoAmountKey] as? String{
                         if let amount = Double(billString){
                             self.billAmount = amount
                             self.billTextField.text = billString
