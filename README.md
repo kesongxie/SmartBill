@@ -1,5 +1,5 @@
-# SmartBill
-
+# SmartBill 
+<p>Readme (draft)</p>
 <h1>
 Gif walk through
 </h1>
