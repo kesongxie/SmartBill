@@ -1,5 +1,7 @@
 # SmartBill 
 <p>Readme (draft)</p>
+<p>CodePath pre-assignment description<a href="https://courses.codepath.com/snippets/ios_university/prework_university.md"></a></p>
+
 <h1>
 Gif walk through
 </h1>
