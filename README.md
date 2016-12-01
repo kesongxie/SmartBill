@@ -2,7 +2,7 @@
 
 <h1>
 Gif walk through
-<h1>
+</h1>
 <div>
 <p>
 Left: General functionalities showcase, such as dynamically caculates subtotal based on different split count, tip percentages.
