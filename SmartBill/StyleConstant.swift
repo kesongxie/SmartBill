@@ -19,11 +19,31 @@ struct StyleConstant{
         static let translucent = false
     }
     
-    struct SplitPikcerView{
-        static let titleAttribute = [NSFontAttributeName: UIFont(name: StyleConstant.systemFontNameBold, size: 17.0)!, NSForegroundColorAttributeName:  UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.0)]
+    struct NightTheme{
+        static let billBackgroundImageUrl = "night-theme"
+        static let sliderBackgroundImageUrl = "night-slider"
+        static let mainViewBackgroundColor = UIColor.black
+        static let sliderViewBackgroundColor = UIColor.black
+        static let splitPickerViewBackgroundColor = UIColor.black
+        static let percentagePickerViewBackgroundColor = UIColor.black
+        static let splitPickerViewFontColor = UIColor.white
+        static let percentagePickerViewFontColor = UIColor.white
+        static let subTotalAfterFontColor = UIColor.white
+        static let weekDayFontColor = UIColor.white
+        static let keyBoardApperance = UIKeyboardAppearance.dark
     }
-    struct TipPercentPickerView{
-        static let titleAttribute = [NSFontAttributeName: UIFont(name: StyleConstant.systemFontNameBold, size: 14.0)!, NSForegroundColorAttributeName: UIColor.white]
-
+    
+    struct DayTheme{
+        static let billBackgroundImageUrl = "day-theme"
+        static let sliderBackgroundImageUrl = "day-slider"
+        static let mainViewBackgroundColor = UIColor.white
+        static let sliderViewBackgroundColor = UIColor.white
+        static let splitPickerViewBackgroundColor = UIColor.white
+        static let percentagePickerViewBackgroundColor = UIColor.white
+        static let splitPickerViewFontColor = UIColor.black
+        static let percentagePickerViewFontColor = UIColor.black
+        static let subTotalAfterFontColor = UIColor.black
+        static let weekDayFontColor = UIColor.white
+        static let keyBoardApperance = UIKeyboardAppearance.light
     }
 }

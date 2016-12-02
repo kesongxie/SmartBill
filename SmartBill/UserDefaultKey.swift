@@ -11,4 +11,5 @@ import Foundation
 struct UserDefaultKey{
     static let tipFactor = "TipFactor"
     static let billAmount = "BillAmount"
+    static let theme = "theme"
 }

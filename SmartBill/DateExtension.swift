@@ -25,8 +25,5 @@ extension Date{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd"
         return dateFormatter.string(from: self).capitalized
-    }
-
-    
-    
+    }    
 }

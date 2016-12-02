@@ -53,7 +53,3 @@ func rowForPickerFromTipFactor(_ tipFactor: Double) -> Int{
 
 
 
-
-
-
-

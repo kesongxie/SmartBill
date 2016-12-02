@@ -17,6 +17,20 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var nightModeView: UIView!{
+        didSet{
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.nightModeViewTapped(gesture:)))
+            nightModeView.addGestureRecognizer(tapGesture)
+        }
+    }
+    
+    @IBOutlet weak var dayModeView: UIView!{
+        didSet{
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dayModeViewTapped(gesture:)))
+            dayModeView.addGestureRecognizer(tapGesture)
+        }
+    }
+
        
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +41,23 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func nightModeViewTapped(gesture: UIGestureRecognizer){
+        //post notification
+        let info = [NotificationInfoKey.themeState: ThemeState.night]
+        let modeChangedNotification = Notification(name: NotificationName.ModeChange, object: nil, userInfo: info)
+        NotificationCenter.default.post(modeChangedNotification)
+        let _ = self.navigationController?.popViewController(animated: true)
+    }
     
+    
+    func dayModeViewTapped(gesture: UIGestureRecognizer){
+        //post notification
+        let info = [NotificationInfoKey.themeState: ThemeState.day]
+        let modeChangedNotification = Notification(name: NotificationName.ModeChange, object: nil, userInfo: info)
+        NotificationCenter.default.post(modeChangedNotification)
+         let _ = self.navigationController?.popViewController(animated: true)
+    }
+
 
     /*
     // MARK: - Navigation

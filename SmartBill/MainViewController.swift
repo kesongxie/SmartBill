@@ -15,7 +15,6 @@ class MainViewController: UIViewController {
         //do some configuration when return from settings
     }
 
-    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var billTextField: UITextField!
@@ -35,6 +34,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var subtotalBeforeLabel: UILabel!
 
     @IBOutlet weak var splitPickerView: UIPickerView!
+    
+    @IBOutlet weak var billTopImageView: UIImageView!
+    
+    @IBOutlet weak var leftSliderImageView: UIImageView!
     
     @IBOutlet weak var settingBtn: UIBarButtonItem!{
         didSet{
@@ -100,7 +103,6 @@ class MainViewController: UIViewController {
     
     var splitPickerSource = initFriendSplitDataSoucre()
     
-    
     // MARK: - slider properties
     @IBOutlet weak var leftPanel: UIView!
     
@@ -159,7 +161,6 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.billTextField.becomeFirstResponder()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -175,6 +176,13 @@ class MainViewController: UIViewController {
         UserDefaults.saveBillAmountForNow(self.billTextField.text!)
     }
     
+    func modeChanged(notification: Notification){
+        if let state = notification.userInfo![NotificationInfoKey.themeState] as? ThemeState{
+            print(state)
+            UserDefaults.saveTheme(state)
+            themeAppearanceInit()
+        }
+    }
     
     /*
      * MARK: - App Init
@@ -193,10 +201,27 @@ class MainViewController: UIViewController {
         self.restoreState()
         self.billTextField.becomeFirstResponder()
         NotificationCenter.default.addObserver(self, selector: #selector(self.appWillTerminated(notification:)), name: NotificationName.AppWillTerminate, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.modeChanged(notification:)), name: NotificationName.ModeChange, object: nil)
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped))
         self.view.addGestureRecognizer(tapGesture)
+        themeAppearanceInit()
     }
   
+    func themeAppearanceInit(){
+        self.billTextField.keyboardAppearance = UserDefaults.getTheme().keyBoardApperance
+        self.subTotalAfterStaticTextField.textColor = UserDefaults.getTheme().subTotalAfterFontColor
+        self.leftSliderImageView.image = UIImage(named: UserDefaults.getTheme().sliderBackgroundImageUrl)
+        self.billTopImageView.image = UIImage(named: UserDefaults.getTheme().billBackgroundImageUrl)
+        self.view.backgroundColor = UserDefaults.getTheme().mainViewBackgroundColor
+        self.splitPickerView.backgroundColor = UserDefaults.getTheme().splitPickerViewBackgroundColor
+        self.tipPercentPickerView.backgroundColor = UserDefaults.getTheme().percentagePickerViewBackgroundColor
+        self.weekDayLabel.textColor = UserDefaults.getTheme().weekDayFontColor
+        self.splitPickerView.reloadComponent(0)
+        self.tipPercentPickerView.reloadComponent(0)
+    }
+    
+    
     func setScrollView(){
         self.scrollView.alwaysBounceVertical = true
         self.scrollView.delegate = self
@@ -387,8 +412,10 @@ extension MainViewController: UITextFieldDelegate{
 // MARK: - UIScrollViewDelegate
 extension MainViewController: UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y < -40{
-            self.billTextField.resignFirstResponder()
+        if scrollView.contentOffset.y < 0{
+            if scrollView.contentOffset.y < -40{
+                self.billTextField.resignFirstResponder()
+            }
         }
     }
 }
@@ -406,9 +433,9 @@ extension MainViewController: UIScrollViewDelegate{
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         var attrTitle:NSAttributedString?
         if pickerView == self.splitPickerView{
-            attrTitle = NSAttributedString(string: splitPickerSource[row], attributes: StyleConstant.SplitPikcerView.titleAttribute)
+            attrTitle = NSAttributedString(string: splitPickerSource[row], attributes: [ NSForegroundColorAttributeName:  UserDefaults.getTheme().splitPickerViewFontColor])
         }else{
-            attrTitle = NSAttributedString(string: tipPercentPickerSource[row], attributes: StyleConstant.TipPercentPickerView.titleAttribute)
+            attrTitle = NSAttributedString(string: tipPercentPickerSource[row], attributes: [ NSForegroundColorAttributeName:  UserDefaults.getTheme().percentagePickerViewFontColor])
         }
         
         return attrTitle

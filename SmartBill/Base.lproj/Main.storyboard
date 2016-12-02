@@ -23,20 +23,28 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y93-jQ-FgT" userLabel="Content View">
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sum-qD-prF">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="160" id="lTc-VF-6MC"/>
+                                                </constraints>
+                                            </imageView>
+                                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phm-hj-jDH" userLabel="Overlay View">
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill without tax: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjC-dj-Qmi">
-                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHW-vf-6D4">
-                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="40"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgk-0B-YCs">
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="light"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="alert"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q7j-OB-dcq" userLabel="TipView">
                                                 <subviews>
@@ -88,7 +96,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CqW-mK-BLs">
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     </pickerView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtk-na-B5P">
                                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
@@ -96,12 +104,11 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$0.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wt2-OZ-Pgx">
-                                                        <color key="textColor" red="0.62745098040000002" green="0.0" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="50"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="Wt2-OZ-Pgx" firstAttribute="leading" secondItem="utj-3d-ziL" secondAttribute="leading" constant="20" id="891-fp-yjv"/>
                                                     <constraint firstItem="HoH-vC-LHK" firstAttribute="top" secondItem="utj-3d-ziL" secondAttribute="top" constant="8" id="BZ4-nm-nBQ"/>
@@ -117,18 +124,25 @@
                                             </view>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="phm-hj-jDH" firstAttribute="centerX" secondItem="Sum-qD-prF" secondAttribute="centerX" id="3Pc-YJ-r7T"/>
                                             <constraint firstItem="q7j-OB-dcq" firstAttribute="trailing" secondItem="jgk-0B-YCs" secondAttribute="trailing" id="8GH-WG-sey"/>
                                             <constraint firstItem="jgk-0B-YCs" firstAttribute="leading" secondItem="pHW-vf-6D4" secondAttribute="trailing" constant="8" symbolic="YES" id="8JG-7F-UfI"/>
                                             <constraint firstAttribute="trailing" secondItem="FjC-dj-Qmi" secondAttribute="trailing" constant="20" id="BaK-Mg-54I"/>
                                             <constraint firstItem="pHW-vf-6D4" firstAttribute="top" secondItem="FjC-dj-Qmi" secondAttribute="bottom" constant="12" id="Bd2-KM-9zK"/>
+                                            <constraint firstItem="phm-hj-jDH" firstAttribute="height" secondItem="Sum-qD-prF" secondAttribute="height" id="Dsa-ob-udh"/>
                                             <constraint firstItem="pHW-vf-6D4" firstAttribute="leading" secondItem="FjC-dj-Qmi" secondAttribute="leading" id="GfS-rd-g7H"/>
                                             <constraint firstItem="jgk-0B-YCs" firstAttribute="centerY" secondItem="pHW-vf-6D4" secondAttribute="centerY" id="LXA-Gt-n4H"/>
                                             <constraint firstAttribute="trailing" secondItem="jgk-0B-YCs" secondAttribute="trailing" constant="20" symbolic="YES" id="M1F-yI-y0t"/>
+                                            <constraint firstItem="phm-hj-jDH" firstAttribute="width" secondItem="Sum-qD-prF" secondAttribute="width" id="MjQ-N8-4dE"/>
+                                            <constraint firstItem="Sum-qD-prF" firstAttribute="leading" secondItem="y93-jQ-FgT" secondAttribute="leading" id="NSL-ln-tKI"/>
                                             <constraint firstItem="FjC-dj-Qmi" firstAttribute="top" secondItem="y93-jQ-FgT" secondAttribute="top" constant="20" id="Nim-fQ-Z7a"/>
                                             <constraint firstAttribute="trailing" secondItem="utj-3d-ziL" secondAttribute="trailing" id="Z1q-gP-atV"/>
                                             <constraint firstItem="utj-3d-ziL" firstAttribute="top" secondItem="q7j-OB-dcq" secondAttribute="bottom" constant="16" id="e7d-q8-8MP"/>
                                             <constraint firstItem="q7j-OB-dcq" firstAttribute="leading" secondItem="pHW-vf-6D4" secondAttribute="leading" id="eNb-5V-u9d"/>
+                                            <constraint firstItem="Sum-qD-prF" firstAttribute="top" secondItem="y93-jQ-FgT" secondAttribute="top" id="hy6-65-CDW"/>
                                             <constraint firstItem="q7j-OB-dcq" firstAttribute="top" secondItem="pHW-vf-6D4" secondAttribute="bottom" constant="5" id="iDO-qO-kga"/>
+                                            <constraint firstItem="phm-hj-jDH" firstAttribute="centerY" secondItem="Sum-qD-prF" secondAttribute="centerY" id="nHe-53-78b"/>
+                                            <constraint firstAttribute="trailing" secondItem="Sum-qD-prF" secondAttribute="trailing" id="oPg-4Q-BjI"/>
                                             <constraint firstItem="utj-3d-ziL" firstAttribute="leading" secondItem="y93-jQ-FgT" secondAttribute="leading" id="pfZ-cx-nf4"/>
                                             <constraint firstItem="FjC-dj-Qmi" firstAttribute="leading" secondItem="y93-jQ-FgT" secondAttribute="leading" constant="20" id="vfR-Tn-zod"/>
                                         </constraints>
@@ -146,18 +160,21 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HjF-bF-BD0" userLabel="Slider View">
                                 <subviews>
-                                    <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xuC-LQ-wmo">
-                                        <frame key="frameInset" minY="466" height="201"/>
-                                        <color key="backgroundColor" red="0.52941176469999995" green="0.0" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="night-slider" translatesAutoresizingMaskIntoConstraints="NO" id="Wr1-SH-0aw"/>
+                                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYF-Sz-adB" userLabel="Overlay View">
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </view>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xuC-LQ-wmo">
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbM-cW-jvE">
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="50"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="tbM-cW-jvE">
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="48"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVc-tm-pID">
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="26"/>
-                                        <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.70588235294117641" green="0.70588235294117641" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="highlightedColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTS-4v-KXT">
@@ -171,9 +188,17 @@
                                     <constraint firstAttribute="trailing" secondItem="tbM-cW-jvE" secondAttribute="trailing" constant="20" symbolic="YES" id="1Ob-7Y-dxw"/>
                                     <constraint firstItem="BVc-tm-pID" firstAttribute="leading" secondItem="tbM-cW-jvE" secondAttribute="leading" id="4Qo-sN-wua"/>
                                     <constraint firstItem="xuC-LQ-wmo" firstAttribute="leading" secondItem="HjF-bF-BD0" secondAttribute="leading" id="5am-ot-ioZ"/>
+                                    <constraint firstItem="DYF-Sz-adB" firstAttribute="centerY" secondItem="HjF-bF-BD0" secondAttribute="centerY" id="98g-hx-fID"/>
+                                    <constraint firstItem="Wr1-SH-0aw" firstAttribute="centerX" secondItem="HjF-bF-BD0" secondAttribute="centerX" id="AsF-Yt-iEl"/>
+                                    <constraint firstItem="DYF-Sz-adB" firstAttribute="width" secondItem="HjF-bF-BD0" secondAttribute="width" id="BnM-MB-uuE"/>
                                     <constraint firstItem="BVc-tm-pID" firstAttribute="top" secondItem="tbM-cW-jvE" secondAttribute="bottom" id="K7o-hP-VDf"/>
+                                    <constraint firstItem="DYF-Sz-adB" firstAttribute="centerX" secondItem="HjF-bF-BD0" secondAttribute="centerX" id="Lb8-8f-Kg9"/>
                                     <constraint firstItem="tbM-cW-jvE" firstAttribute="leading" secondItem="HjF-bF-BD0" secondAttribute="leading" constant="20" symbolic="YES" id="Llf-Ud-TQY"/>
                                     <constraint firstItem="XTS-4v-KXT" firstAttribute="baseline" secondItem="BVc-tm-pID" secondAttribute="baseline" id="RQD-Sw-HKw"/>
+                                    <constraint firstItem="Wr1-SH-0aw" firstAttribute="centerY" secondItem="HjF-bF-BD0" secondAttribute="centerY" id="Uuz-jX-X0H"/>
+                                    <constraint firstItem="DYF-Sz-adB" firstAttribute="height" secondItem="HjF-bF-BD0" secondAttribute="height" id="hYg-Yp-uV9"/>
+                                    <constraint firstItem="Wr1-SH-0aw" firstAttribute="height" secondItem="HjF-bF-BD0" secondAttribute="height" id="lx0-Vc-pHj"/>
+                                    <constraint firstItem="Wr1-SH-0aw" firstAttribute="width" secondItem="HjF-bF-BD0" secondAttribute="width" id="mWk-dk-cZ3"/>
                                     <constraint firstItem="XTS-4v-KXT" firstAttribute="leading" secondItem="BVc-tm-pID" secondAttribute="trailing" constant="8" symbolic="YES" id="mho-IR-BZo"/>
                                     <constraint firstItem="tbM-cW-jvE" firstAttribute="top" secondItem="HjF-bF-BD0" secondAttribute="top" constant="20" symbolic="YES" id="nlA-gx-WtN"/>
                                     <constraint firstAttribute="trailing" secondItem="xuC-LQ-wmo" secondAttribute="trailing" id="sMH-bV-mTP"/>
@@ -181,7 +206,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.45882352941176469" green="0.0" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="y93-jQ-FgT" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="2Nw-ct-9sP"/>
                             <constraint firstItem="bQc-Sk-Ze1" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="3Mf-ke-fcO"/>
@@ -202,7 +227,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="SMART BILL" id="hCe-bU-kCs">
                         <barButtonItem key="leftBarButtonItem" image="Ham" id="m8t-sm-wQu">
-                            <color key="tintColor" red="0.52941176469999995" green="0.0" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.50980392156862742" green="0.50980392156862742" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="hamIconTapped:" destination="BYZ-38-t0r" id="ruT-jN-1y1"/>
                             </connections>
@@ -216,9 +241,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="billTextField" destination="jgk-0B-YCs" id="G6r-jA-kGg"/>
+                        <outlet property="billTopImageView" destination="Sum-qD-prF" id="phN-Hu-c9p"/>
                         <outlet property="currencySymbol" destination="pHW-vf-6D4" id="diF-HT-oOC"/>
                         <outlet property="dayLabel" destination="XTS-4v-KXT" id="Nii-01-klB"/>
                         <outlet property="leftPanel" destination="HjF-bF-BD0" id="g0e-Rh-dCV"/>
+                        <outlet property="leftSliderImageView" destination="Wr1-SH-0aw" id="LsK-vS-VdV"/>
                         <outlet property="monthLabel" destination="BVc-tm-pID" id="SsW-nY-Q2K"/>
                         <outlet property="overlayView" destination="bQc-Sk-Ze1" id="qte-M5-cfZ"/>
                         <outlet property="percentageLabel" destination="TPe-Cs-JGE" id="8eQ-xO-M1p"/>
@@ -248,7 +275,73 @@
                     <view key="view" contentMode="scaleToFill" id="dXa-KH-mDz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n80-1H-ay9" userLabel="night mode">
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="night-theme" translatesAutoresizingMaskIntoConstraints="NO" id="xyS-nJ-Jqz"/>
+                                    <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzt-K4-NGu" userLabel="Overlay View">
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Night Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nao-zV-ZeN">
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="40"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Nao-zV-ZeN" firstAttribute="leading" secondItem="n80-1H-ay9" secondAttribute="leading" constant="22" id="6vg-Mr-d9a"/>
+                                    <constraint firstItem="bzt-K4-NGu" firstAttribute="width" secondItem="xyS-nJ-Jqz" secondAttribute="width" id="7dN-4K-4dQ"/>
+                                    <constraint firstItem="bzt-K4-NGu" firstAttribute="top" secondItem="xyS-nJ-Jqz" secondAttribute="top" id="Dyt-GO-Kmk"/>
+                                    <constraint firstItem="bzt-K4-NGu" firstAttribute="height" secondItem="xyS-nJ-Jqz" secondAttribute="height" id="HdX-Dk-NHs"/>
+                                    <constraint firstItem="bzt-K4-NGu" firstAttribute="leading" secondItem="xyS-nJ-Jqz" secondAttribute="leading" id="WqB-hm-g0P"/>
+                                    <constraint firstItem="xyS-nJ-Jqz" firstAttribute="width" secondItem="n80-1H-ay9" secondAttribute="width" id="Xfr-We-9wr"/>
+                                    <constraint firstItem="xyS-nJ-Jqz" firstAttribute="centerX" secondItem="n80-1H-ay9" secondAttribute="centerX" id="Y4f-Az-Kjg"/>
+                                    <constraint firstItem="xyS-nJ-Jqz" firstAttribute="centerY" secondItem="n80-1H-ay9" secondAttribute="centerY" id="f4c-DT-lZz"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nao-zV-ZeN" secondAttribute="trailing" constant="20" id="nPS-qD-hIR"/>
+                                    <constraint firstItem="Nao-zV-ZeN" firstAttribute="centerY" secondItem="n80-1H-ay9" secondAttribute="centerY" id="tgW-XL-T3Y"/>
+                                    <constraint firstItem="xyS-nJ-Jqz" firstAttribute="height" secondItem="n80-1H-ay9" secondAttribute="height" id="vb5-iw-SdT"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kDr-h0-IA9" userLabel="day mode">
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="day-theme" translatesAutoresizingMaskIntoConstraints="NO" id="HaZ-Wl-udJ"/>
+                                    <view alpha="0.40000000596046448" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36A-bn-gpn" userLabel="Overlay View">
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ixo-tU-ded">
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="40"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="HaZ-Wl-udJ" firstAttribute="height" secondItem="kDr-h0-IA9" secondAttribute="height" id="48e-Ji-4Wv"/>
+                                    <constraint firstItem="36A-bn-gpn" firstAttribute="width" secondItem="HaZ-Wl-udJ" secondAttribute="width" id="5WW-jr-cFQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ixo-tU-ded" secondAttribute="trailing" constant="20" id="B2A-kN-4r5"/>
+                                    <constraint firstItem="36A-bn-gpn" firstAttribute="centerX" secondItem="HaZ-Wl-udJ" secondAttribute="centerX" id="F5P-Nd-awi"/>
+                                    <constraint firstItem="Ixo-tU-ded" firstAttribute="leading" secondItem="kDr-h0-IA9" secondAttribute="leading" constant="20" id="Pnr-pe-Igz"/>
+                                    <constraint firstItem="36A-bn-gpn" firstAttribute="centerY" secondItem="HaZ-Wl-udJ" secondAttribute="centerY" id="Qfk-UX-A9x"/>
+                                    <constraint firstItem="HaZ-Wl-udJ" firstAttribute="centerX" secondItem="kDr-h0-IA9" secondAttribute="centerX" id="cr7-JI-UTu"/>
+                                    <constraint firstItem="HaZ-Wl-udJ" firstAttribute="centerY" secondItem="kDr-h0-IA9" secondAttribute="centerY" id="da6-sH-Dmx"/>
+                                    <constraint firstItem="HaZ-Wl-udJ" firstAttribute="width" secondItem="kDr-h0-IA9" secondAttribute="width" id="h9F-hQ-cDl"/>
+                                    <constraint firstItem="36A-bn-gpn" firstAttribute="height" secondItem="HaZ-Wl-udJ" secondAttribute="height" id="jLl-jL-DdP"/>
+                                    <constraint firstItem="Ixo-tU-ded" firstAttribute="centerY" secondItem="kDr-h0-IA9" secondAttribute="centerY" id="lbz-Jp-lLm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="n80-1H-ay9" firstAttribute="top" secondItem="Pvn-zQ-gaR" secondAttribute="bottom" id="G14-TK-RJN"/>
+                            <constraint firstItem="kDr-h0-IA9" firstAttribute="leading" secondItem="dXa-KH-mDz" secondAttribute="leading" id="K0U-Sd-SdW"/>
+                            <constraint firstItem="n80-1H-ay9" firstAttribute="height" secondItem="dXa-KH-mDz" secondAttribute="height" multiplier="0.5" id="RQO-tp-i0a"/>
+                            <constraint firstItem="n80-1H-ay9" firstAttribute="leading" secondItem="dXa-KH-mDz" secondAttribute="leading" id="buM-6T-WZl"/>
+                            <constraint firstAttribute="trailing" secondItem="kDr-h0-IA9" secondAttribute="trailing" id="h89-6n-HOz"/>
+                            <constraint firstAttribute="trailing" secondItem="n80-1H-ay9" secondAttribute="trailing" id="kP1-ln-kOs"/>
+                            <constraint firstItem="kDr-h0-IA9" firstAttribute="top" secondItem="bzt-K4-NGu" secondAttribute="bottom" id="pNS-31-B9y"/>
+                            <constraint firstItem="DUR-Oh-diA" firstAttribute="top" secondItem="kDr-h0-IA9" secondAttribute="bottom" id="vZS-ei-9Io"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SETTINGS" id="N2A-89-64M">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="9xy-Hy-v8R">
@@ -260,12 +353,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backBtn" destination="9xy-Hy-v8R" id="hXH-FI-zm1"/>
+                        <outlet property="dayModeView" destination="36A-bn-gpn" id="27W-5R-SBg"/>
+                        <outlet property="nightModeView" destination="n80-1H-ay9" id="F9Z-BY-bzr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3c-Kv-Ibf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="8oP-II-5tG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1649" y="88"/>
+            <point key="canvasLocation" x="1648.8" y="87.706146926536732"/>
         </scene>
         <!--Main Navigation View Controller-->
         <scene sceneID="weP-mc-fLJ">
@@ -288,5 +383,8 @@
     </scenes>
     <resources>
         <image name="Ham" width="22" height="17"/>
+        <image name="day-theme" width="1536" height="557"/>
+        <image name="night-slider" width="1024" height="682"/>
+        <image name="night-theme" width="1024" height="682"/>
     </resources>
 </document>

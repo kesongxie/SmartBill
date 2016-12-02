@@ -24,6 +24,8 @@
 		989A1DE01DEBE45F00484A33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 989A1DDE1DEBE45F00484A33 /* Main.storyboard */; };
 		989A1DE51DEBF0EE00484A33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 989A1DE71DEBF0EE00484A33 /* InfoPlist.strings */; };
 		989A1DEA1DEBF42B00484A33 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 989A1DEC1DEBF42B00484A33 /* Localizable.strings */; };
+		98C3DD6E1DF1341F00F6B49B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C3DD6D1DF1341F00F6B49B /* Theme.swift */; };
+		98C3DD761DF154AE00F6B49B /* NotificationInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C3DD751DF154AE00F6B49B /* NotificationInfoKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		989A1DE21DEBE47D00484A33 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		989A1DE61DEBF0EE00484A33 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		989A1DEB1DEBF42B00484A33 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		98C3DD6D1DF1341F00F6B49B /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		98C3DD751DF154AE00F6B49B /* NotificationInfoKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationInfoKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,14 +84,13 @@
 		984174931DEAA51300BA64E3 /* SmartBill */ = {
 			isa = PBXGroup;
 			children = (
-				989A1DEC1DEBF42B00484A33 /* Localizable.strings */,
-				989A1DE71DEBF0EE00484A33 /* InfoPlist.strings */,
+				98C3DD701DF150BF00F6B49B /* Internationalization */,
 				984174941DEAA51300BA64E3 /* AppDelegate.swift */,
+				98C3DD6F1DF150B300F6B49B /* Model */,
 				989A1DD41DEBA3AC00484A33 /* Extension */,
 				984174AE1DEAA55A00BA64E3 /* Macro */,
-				984174A81DEAA52500BA64E3 /* MainNavigationViewController.swift */,
-				984174A61DEAA52500BA64E3 /* MainViewController.swift */,
-				989A1DD21DEB9EBB00484A33 /* SettingsViewController.swift */,
+				98C3DD711DF150D200F6B49B /* Main Interface */,
+				98C3DD721DF150E000F6B49B /* Setting */,
 				989A1DDE1DEBE45F00484A33 /* Main.storyboard */,
 				9841749B1DEAA51300BA64E3 /* Assets.xcassets */,
 				9841749D1DEAA51300BA64E3 /* LaunchScreen.storyboard */,
@@ -101,6 +104,7 @@
 			children = (
 				984174A71DEAA52500BA64E3 /* StyleConstant.swift */,
 				984174AF1DEACFA300BA64E3 /* Config.swift */,
+				98C3DD751DF154AE00F6B49B /* NotificationInfoKey.swift */,
 				989A1DD01DEB7F3000484A33 /* Helper.swift */,
 				989746D81DEE636400975B45 /* NotificationName.swift */,
 				989746DA1DEE688500975B45 /* UserDefaultKey.swift */,
@@ -116,6 +120,40 @@
 				989746DC1DEE694500975B45 /* UserDefaultExtension.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		98C3DD6F1DF150B300F6B49B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				98C3DD6D1DF1341F00F6B49B /* Theme.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		98C3DD701DF150BF00F6B49B /* Internationalization */ = {
+			isa = PBXGroup;
+			children = (
+				989A1DEC1DEBF42B00484A33 /* Localizable.strings */,
+				989A1DE71DEBF0EE00484A33 /* InfoPlist.strings */,
+			);
+			name = Internationalization;
+			sourceTree = "<group>";
+		};
+		98C3DD711DF150D200F6B49B /* Main Interface */ = {
+			isa = PBXGroup;
+			children = (
+				984174A81DEAA52500BA64E3 /* MainNavigationViewController.swift */,
+				984174A61DEAA52500BA64E3 /* MainViewController.swift */,
+			);
+			name = "Main Interface";
+			sourceTree = "<group>";
+		};
+		98C3DD721DF150E000F6B49B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				989A1DD21DEB9EBB00484A33 /* SettingsViewController.swift */,
+			);
+			name = Setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,7 +236,9 @@
 				989A1DDA1DEBD12600484A33 /* DateExtension.swift in Sources */,
 				989746DD1DEE694500975B45 /* UserDefaultExtension.swift in Sources */,
 				984174AB1DEAA52500BA64E3 /* MainNavigationViewController.swift in Sources */,
+				98C3DD6E1DF1341F00F6B49B /* Theme.swift in Sources */,
 				989746D91DEE636400975B45 /* NotificationName.swift in Sources */,
+				98C3DD761DF154AE00F6B49B /* NotificationInfoKey.swift in Sources */,
 				989A1DD31DEB9EBB00484A33 /* SettingsViewController.swift in Sources */,
 				984174B01DEACFA300BA64E3 /* Config.swift in Sources */,
 				989A1DD61DEBA3C800484A33 /* BarButtonItemExtension.swift in Sources */,

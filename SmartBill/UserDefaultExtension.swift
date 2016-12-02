@@ -25,8 +25,6 @@ extension UserDefaults{
         UserDefaults.standard.removeObject(forKey: UserDefaultKey.billAmount)
     }
     
-    
-    
     // Save the tip factor to the NSUserDefault
     static func saveTipFactor(_ tipFactor: Double){
         UserDefaults.standard.set(tipFactor, forKey: UserDefaultKey.tipFactor)
@@ -35,5 +33,18 @@ extension UserDefaults{
     // Get the tip factor from the NSUserDefault
     static func getTipFactor() -> Double{
         return UserDefaults.standard.double(forKey: UserDefaultKey.tipFactor)
+    }
+    
+    static func getTheme() -> Theme{
+        if let stateRawValue = UserDefaults.standard.object(forKey: UserDefaultKey.theme) as? Int{
+            if let theme = ThemeState(rawValue: stateRawValue){
+                return theme == .day ? dayTheme : nightTheme
+            }
+        }
+        return nightTheme
+    }
+    
+    static func saveTheme(_ state: ThemeState){
+        UserDefaults.standard.set(state.rawValue, forKey: UserDefaultKey.theme)
     }
 }
