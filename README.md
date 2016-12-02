@@ -22,7 +22,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [completed] Include internationalization for Simplied Han
+- Include internationalization for Simplied Han
 
 
 ## Gif walk through
