@@ -15,6 +15,7 @@ Center: Localization and internationalization for the app, includes English and 
 <p align="left">
   <img align="left" src="https://github.com/kesongxie/SmartBill/blob/master/SmartBill/Gif/Part-one.gif" width="250"/>
   <img align="center" src="https://github.com/kesongxie/SmartBill/blob/master/SmartBill/Gif/Part-two.gif" width="250"/>
+  <img align="right" src="https://github.com/kesongxie/SmartBill/blob/master/SmartBill/Gif/Part-three.gif" width="250"/>
 </p>
 </div>
 
