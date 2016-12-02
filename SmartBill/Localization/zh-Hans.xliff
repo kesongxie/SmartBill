@@ -41,10 +41,10 @@
         <target>+</target>
         <note>Class = "UILabel"; text = "+"; ObjectID = "IvZ-v2-PjD";</note>
       </trans-unit>
-      <trans-unit id="Lvi-vE-rQX.title">
-        <source>Back</source>
-        <target>返回</target>
-        <note>Class = "UIBarButtonItem"; title = "Back"; ObjectID = "Lvi-vE-rQX";</note>
+      <trans-unit id="Ixo-tU-ded.text">
+        <source>Day Mode</source>
+        <target>白天模式</target>
+        <note>Class = "UILabel"; text = "Day Mode"; ObjectID = "Ixo-tU-ded";</note>
       </trans-unit>
       <trans-unit id="Mtk-na-B5P.text">
         <source>$0.00</source>
@@ -61,10 +61,10 @@
         <target>% 小费)</target>
         <note>Class = "UILabel"; text = "% Tips)"; ObjectID = "NKX-v4-hDY";</note>
       </trans-unit>
-      <trans-unit id="OVA-fq-R6j.headerTitle">
-        <source>Tips Percentage</source>
-        <target>小费</target>
-        <note>Class = "UITableViewSection"; headerTitle = "Tips Percentage"; ObjectID = "OVA-fq-R6j";</note>
+      <trans-unit id="Nao-zV-ZeN.text">
+        <source>Night Mode</source>
+        <target>夜间模式</target>
+        <note>Class = "UILabel"; text = "Night Mode"; ObjectID = "Nao-zV-ZeN";</note>
       </trans-unit>
       <trans-unit id="TPe-Cs-JGE.text">
         <source>Percentage</source>
@@ -100,11 +100,6 @@
         <source>(</source>
         <target>(</target>
         <note>Class = "UILabel"; text = "("; ObjectID = "mjX-M4-DFd";</note>
-      </trans-unit>
-      <trans-unit id="oyK-I0-TJz.title">
-        <source>SETTINGS</source>
-        <target>设置</target>
-        <note>Class = "UINavigationItem"; title = "SETTINGS"; ObjectID = "oyK-I0-TJz";</note>
       </trans-unit>
       <trans-unit id="pHW-vf-6D4.text">
         <source>$</source>
