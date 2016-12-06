@@ -2,6 +2,8 @@
 
 # Pre-work - *SmartBill*
 
+<a href="https://itunes.apple.com/us/app/id1182292662"><img src="https://github.com/kesongxie/SmartBill/blob/master/SmartBill/Gif/imgres.jpg" height="60"></a>
+
 **SmartBill** is a tip calculator application for iOS.
 
 Submitted by: **Kesong Xie**
